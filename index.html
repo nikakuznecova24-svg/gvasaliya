@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алина Гвасалия — Актриса, интегративный психолог</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Tenor Sans, Cormorant Garamond & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sand: {
+                            50: '#F5F2EB',  /* Soft warm cream */
+                            100: '#EBE5DC', /* Main elegant warm beige background tone */
+                            200: '#E0D9CE', /* Delicate frames and borders */
+                            300: '#D2C9BB',
+                            400: '#BEB19F',
+                        },
+                        olive: {
+                            deep: '#1A231C',
+                            dark: '#253026',
+                            muted: '#374639',
+                            soft: '#5A6C5C',
+                            light: '#8FA090',
+                            tint: '#E3E9E4',
+                            glow: 'rgba(90, 108, 92, 0.12)'
+                        },
+                        ochre: {
+                            DEFAULT: '#B76A43',
+                            hover: '#9E5632',
+                            soft: '#D2855F',
+                            light: '#F8EFEA',
+                            accent: '#C5754D',
+                            glow: 'rgba(210, 133, 95, 0.12)'
+                        },
+                        charcoal: '#1C1B1A',
+                        muted: '#68645E'
+                    },
+                    fontFamily: {
+                        display: ['"Tenor Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', '"Bodoni Moda"', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            overflow-wrap: break-word;
+            word-break: normal;
+        }
+
+        body {
+            overflow-x: hidden;
+            background-color: #EBE5DC;
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #EBE5DC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5A6C5C;
+            border-radius: 4px;
+        }
+        
+        .bg-grain {
+            background-image: radial-gradient(rgba(37, 48, 38, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .photo-3d {
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 2px 6px rgba(26, 35, 28, 0.08), 0 18px 36px -14px rgba(26, 35, 28, 0.32), 0 8px 18px -10px rgba(183, 106, 67, 0.18);
+            will-change: transform;
+        }
+        .photo-3d:hover {
+            transform: perspective(1200px) rotateX(2deg) rotateY(-3.5deg) translateY(-5px) scale(1.008);
+            box-shadow: 0 6px 14px rgba(26, 35, 28, 0.12), 0 30px 55px -14px rgba(26, 35, 28, 0.4), 0 10px 26px -8px rgba(183, 106, 67, 0.28);
+        }
+
+        .photo-volume {
+            box-shadow: 0 2px 6px rgba(26, 35, 28, 0.08), 0 18px 36px -14px rgba(26, 35, 28, 0.32), 0 8px 18px -10px rgba(183, 106, 67, 0.18);
+        }
+
+        .cta-glow {
+            transition: box-shadow 0.4s ease, transform 0.3s ease;
+        }
+        .cta-glow:hover {
+            box-shadow: 0 0 0 4px rgba(212, 133, 95, 0.18), 0 8px 24px -4px rgba(183, 106, 67, 0.45);
+            transform: translateY(-1px);
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(248,225,205,0.7) 45%, transparent 75%);
+            pointer-events: none;
+            filter: drop-shadow(0 0 4px rgba(212, 133, 95, 0.6));
+            animation: sparkleTwinkle 3.6s ease-in-out infinite;
+        }
+        .sparkle-1 { top: 4%; left: 8%; animation-delay: 0s; }
+        .sparkle-2 { top: 14%; right: 6%; width: 4px; height: 4px; animation-delay: 1.1s; }
+        .sparkle-3 { bottom: 18%; left: -2%; width: 5px; height: 5px; animation-delay: 2s; }
+        .sparkle-4 { bottom: 6%; right: 10%; width: 4px; height: 4px; animation-delay: 2.8s; }
+        .sparkle-5 { top: 34%; left: -4%; width: 3px; height: 3px; animation-delay: 0.6s; }
+        .sparkle-6 { top: 45%; right: -3%; width: 5px; height: 5px; animation-delay: 1.8s; }
+        .sparkle-7 { bottom: 32%; right: 4%; width: 4px; height: 4px; animation-delay: 3.4s; }
+        .sparkle-8 { top: 62%; left: 4%; width: 4px; height: 4px; animation-delay: 2.4s; }
+        .sparkle-9 { top: -3%; right: 26%; width: 3px; height: 3px; animation-delay: 1.5s; }
+        .sparkle-10 { bottom: -3%; left: 24%; width: 5px; height: 5px; animation-delay: 3.9s; }
+
+        @keyframes sparkleTwinkle {
+            0%, 100% { opacity: 0; transform: scale(0.4); }
+            50% { opacity: 1; transform: scale(1.15); }
+        }
+
+        #hero-grid {
+            display: grid;
+            grid-template-areas: "name" "photo" "desc";
+            gap: 2rem;
+        }
+        @media (min-width: 1024px) {
+            #hero-grid {
+                grid-template-columns: 7fr 5fr;
+                grid-template-areas: "name photo" "desc photo";
+                align-items: center;
+                gap: 1rem 3rem;
+            }
+        }
+        #hero-name { grid-area: name; }
+        #hero-photo { grid-area: photo; }
+        #hero-desc { grid-area: desc; }
+
+        .slide-transition {
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+
+        .view-transition {
+            transition: opacity 0.35s ease-in-out;
+        }
+
+        .bg-grain-overlay {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.45;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.55'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay;
+        }
+
+        .sunset-aura {
+            background: radial-gradient(circle at 50% 50%, rgba(245, 185, 140, 0.55) 0%, rgba(210, 133, 95, 0.25) 45%, rgba(235, 229, 220, 0) 70%);
+        }
+
+        .hero-halo-glow {
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.75) 0%, rgba(248, 225, 205, 0.55) 32%, rgba(212, 133, 95, 0.22) 60%, transparent 76%);
+            filter: blur(26px);
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.65; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.03); }
+        }
+
+        .animated-glow-backdrop {
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        .interactive-star {
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: center;
+            cursor: pointer;
+        }
+
+        .interactive-star:hover {
+            transform: scale(1.4) rotate(45deg);
+            filter: drop-shadow(0 0 6px rgba(183, 106, 67, 0.9));
+        }
+
+        .interactive-dot {
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: center;
+            cursor: pointer;
+        }
+
+        .interactive-dot:hover {
+            transform: scale(1.5);
+            filter: drop-shadow(0 0 8px rgba(37, 48, 38, 0.8));
+        }
+    </style>
+</head>
+<body class="bg-sand-100 text-charcoal font-sans antialiased bg-grain selection:bg-ochre selection:text-white relative min-h-screen">
+
+    <!-- Ambient Overlay Grain -->
+    <div class="bg-grain-overlay"></div>
+
+    <!-- Background Lighting Blur Orbs -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[650px] sm:w-[850px] h-[550px] sm:h-[650px] sunset-aura rounded-full blur-3xl opacity-80 animated-glow-backdrop"></div>
+        <div class="absolute -top-32 -left-32 w-96 sm:w-[500px] h-96 sm:h-[500px] bg-ochre-glow rounded-full blur-3xl opacity-60"></div>
+        <div class="absolute top-[35%] -right-28 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-ochre-glow rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute top-[65%] -left-32 w-[450px] h-[450px] bg-olive-glow rounded-full blur-3xl opacity-60"></div>
+    </div>
+
+    <!-- Header Navigation Bar -->
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3 sm:py-4 px-3 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-x-1.5 sm:gap-x-4 bg-sand-100/90 backdrop-blur-md border border-olive-soft/15 px-2.5 sm:px-6 py-2.5 sm:py-3 shadow-xs rounded-full">
+
+            <!-- Navigation Menu (single line, visible on all devices) -->
+            <nav class="flex items-center flex-1 sm:flex-initial justify-between sm:justify-center flex-nowrap gap-x-0 sm:gap-x-6 xl:gap-x-8 text-[9px] sm:text-xs font-medium tracking-normal sm:tracking-wider uppercase text-olive-dark/90 whitespace-nowrap">
+                <a href="javascript:void(0)" onclick="navigateTo('main', 'about')" class="flex-1 sm:flex-initial text-center sm:text-left hover:text-ochre transition-colors py-1">Обо мне</a>
+                <a href="javascript:void(0)" onclick="navigateTo('main', 'approach')" class="flex-1 sm:flex-initial text-center sm:text-left hover:text-ochre transition-colors py-1">Подход</a>
+                <a href="javascript:void(0)" onclick="navigateTo('main', 'formats')" class="flex-1 sm:flex-initial text-center sm:text-left hover:text-ochre transition-colors py-1">
+                    <span class="sm:hidden">Форматы</span>
+                    <span class="hidden sm:inline">Форматы работы</span>
+                </a>
+                <a href="javascript:void(0)" onclick="navigateTo('main', 'reviews')" class="flex-1 sm:flex-initial text-center sm:text-left hover:text-ochre transition-colors py-1">Отзывы</a>
+            </nav>
+
+            <!-- Action Button -->
+            <a href="javascript:void(0)" onclick="navigateTo('main', 'booking')" class="cta-glow inline-flex items-center justify-center px-3 sm:px-6 py-1.5 sm:py-2 bg-olive-dark hover:bg-olive-muted text-sand-50 text-[9px] sm:text-xs uppercase tracking-normal sm:tracking-wider font-medium transition-all rounded-full shadow-xs shrink-0">
+                Записаться
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN SITE VIEW -->
+    <div id="view-main" class="view-transition relative z-10">
+        
+        <!-- HERO SECTION -->
+        <section class="pt-28 sm:pt-36 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+            <div id="hero-grid">
+
+                <!-- Name & Tagline -->
+                <div id="hero-name" class="space-y-2 text-left">
+                    <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-ochre font-semibold">
+                        <span>Актриса • Интегративный психолог</span>
+                    </div>
+                    <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-normal tracking-wide text-olive-deep leading-tight">
+                        Алина Гвасалия
+                    </h1>
+                </div>
+
+                <!-- Photo with Soft Framed Container & Quote Overlay -->
+                <div id="hero-photo" class="relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-8 sm:-inset-12 hero-halo-glow rounded-full opacity-60 animated-glow-backdrop pointer-events-none"></div>
+
+                        <!-- Soft sparkles around the photo -->
+                        <span class="sparkle sparkle-1"></span>
+                        <span class="sparkle sparkle-2"></span>
+                        <span class="sparkle sparkle-3"></span>
+                        <span class="sparkle sparkle-4"></span>
+                        <span class="sparkle sparkle-5"></span>
+                        <span class="sparkle sparkle-6"></span>
+                        <span class="sparkle sparkle-7"></span>
+                        <span class="sparkle sparkle-8"></span>
+                        <span class="sparkle sparkle-9"></span>
+                        <span class="sparkle sparkle-10"></span>
+
+                        <div class="absolute -inset-1.5 rounded-2xl bg-gradient-to-tr from-olive-soft/20 via-ochre/15 to-sand-200 blur-sm"></div>
+                        <div class="photo-volume relative border border-olive-soft/20 p-2.5 bg-sand-50/90 rounded-2xl overflow-hidden">
+                            <div class="relative overflow-hidden rounded-xl aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5]">
+                                <img 
+                                    src="assets/portrait-2.jpg" 
+                                    alt="Алина Гвасалия — Актриса и интегративный психолог" 
+                                    class="w-full h-full object-cover object-top"
+                                    loading="eager"
+                                />
+
+                                <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-4 sm:p-5 bg-sand-100/90 backdrop-blur-md rounded-xl border border-white/60 shadow-lg">
+                                    <div class="flex items-start gap-2 justify-center sm:justify-start">
+                                        <span class="font-serif text-2xl sm:text-3xl text-ochre leading-none shrink-0 -mt-0.5">"</span>
+                                        <p class="font-serif text-xs sm:text-base text-olive-deep leading-snug tracking-wide font-normal italic text-center sm:text-left">
+                                            <span class="block">Человек — не набор симптомов.</span>
+                                            <span class="block">Человек — это история.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description & CTA -->
+                <div id="hero-desc" class="space-y-6 text-left">
+                    <p class="text-sm sm:text-base lg:text-lg text-muted font-light leading-relaxed max-w-xl">
+                        Глубокая работа с мышлением, эмоциями, бессознательными сценариями и телом для возвращения устойчивости и внутренней свободы.
+                    </p>
+
+                    <!-- Primary Call to Action -->
+                    <div class="pt-2 flex flex-wrap items-center gap-4">
+                        <a href="#booking" class="cta-glow inline-flex items-center justify-center px-8 py-3.5 bg-olive-dark text-sand-50 hover:bg-olive-muted text-xs uppercase tracking-widest font-medium rounded-full transition-all duration-300 shadow-sm hover:shadow-md">
+                            <span>Записаться</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- REDESIGNED SECTION "ABOUT ALINA" ON MAIN PAGE -->
+        <section id="about" class="py-16 sm:py-28 relative z-10 overflow-hidden border-t border-olive-soft/15">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+                    <h2 class="font-serif text-3xl sm:text-5xl font-light text-olive-deep mt-1 tracking-wide">Обо мне</h2>
+                    <div class="flex items-center justify-center gap-2 mt-3 opacity-60">
+                        <div class="w-12 h-px bg-olive-soft/40"></div>
+                    </div>
+                </div>
+
+                <!-- 1. TWO-COLUMN LAYOUT (PHOTO + CORE SUMMARY) -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-sand-50/70 backdrop-blur-md border border-olive-soft/20 p-6 sm:p-10 lg:p-12 rounded-3xl shadow-sm mb-16">
+                    
+                    <!-- Col 1: Photo -->
+                    <div class="lg:col-span-5 relative max-w-sm mx-auto lg:max-w-none w-full">
+                        <div class="relative group">
+                            <div class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-ochre/25 via-olive-soft/20 to-sand-200 blur-xs"></div>
+                            <div class="photo-3d relative border border-olive-soft/20 p-2 bg-sand-50 rounded-2xl overflow-hidden">
+                                <div class="overflow-hidden rounded-xl aspect-[3/4]">
+                                    <img 
+                                        src="assets/portrait-1.jpg" 
+                                        alt="Алина Гвасалия" 
+                                        class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Col 2: Text - Essential Info -->
+                    <div class="lg:col-span-7 space-y-6 text-left">
+                        <div class="space-y-3">
+                            <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-light text-olive-deep leading-snug">
+                                От сцены — к психологии
+                            </h3>
+                        </div>
+
+                        <p class="text-charcoal/90 text-sm sm:text-base leading-relaxed font-light">
+                            Я — актриса и интегративный психолог. В своей практике я соединяю глубокое понимание человеческой природы, психосоматическую коррекцию, эмоционально-образную терапию и телесные практики.
+                        </p>
+
+                        <p class="text-charcoal/80 text-xs sm:text-sm leading-relaxed font-light">
+                            Мой путь в психологию начался с актёрской профессии и интереса к тому, как устроен человек. Со временем мне захотелось глубже понять, почему мы чувствуем и реагируем так, а не иначе, как формируются наши внутренние сценарии и что помогает нам меняться.
+                        </p>
+
+                        <div>
+                            <a href="javascript:void(0)" onclick="navigateTo('path')" class="inline-flex items-center justify-center px-9 py-4 bg-ochre hover:bg-ochre-hover text-white text-xs sm:text-sm uppercase tracking-widest font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg group">
+                                <span>Моя личная история</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-3 group-hover:translate-x-1.5 transition-transform duration-300"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 2. BELOW COLUMNS: EXPERIENCE, EDUCATION, ACTING ACTIVITY CARDS -->
+                <div class="mb-14">
+                    <div class="text-center mb-8">
+                        <span class="text-xs uppercase tracking-widest text-ochre font-semibold">
+                            КВАЛИФИКАЦИЯ И ОПЫТ
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                        
+                        <!-- Card 1: Experience -->
+                        <div class="p-6 sm:p-7 bg-sand-50/90 border border-olive-soft/20 rounded-3xl shadow-2xs hover:border-olive-soft/40 transition-all relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="w-8 h-8 rounded-full bg-sand-200/90 text-olive-dark text-xs flex items-center justify-center font-medium border border-olive-soft/30 font-serif">01</span>
+                                    <h3 class="font-serif text-xl sm:text-2xl font-light text-olive-deep tracking-wide">Опыт</h3>
+                                </div>
+                                <ul class="space-y-3 text-xs sm:text-sm text-olive-dark/90 font-light">
+                                    <li class="flex items-start gap-2.5">
+                                        <span class="text-ochre text-sm leading-none shrink-0">•</span>
+                                        <span>Более 4 лет частной психологической практики.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <span class="text-ochre text-sm leading-none shrink-0">•</span>
+                                        <span>Индивидуальная терапия и длительное психологическое сопровождение.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <span class="text-ochre text-sm leading-none shrink-0">•</span>
+                                        <span>Автор интенсива PRO ТЕЛО и дыхательных программ.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <span class="text-ochre text-sm leading-none shrink-0">•</span>
+                                        <span>Ведущая групповых программ, телесных и дыхательных практик.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Education -->
+                        <div class="p-6 sm:p-7 bg-sand-50/90 border border-olive-soft/20 rounded-3xl shadow-2xs hover:border-olive-soft/40 transition-all relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="w-8 h-8 rounded-full bg-sand-200/90 text-olive-dark text-xs flex items-center justify-center font-medium border border-olive-soft/30 font-serif">02</span>
+                                    <h3 class="font-serif text-xl sm:text-2xl font-light text-olive-deep tracking-wide">Образование</h3>
+                                </div>
+                                <ul class="space-y-3 text-xs sm:text-sm text-olive-dark/90 font-light">
+                                    <li class="space-y-1.5">
+                                        <div class="flex items-center justify-between gap-2">
+                                            <div class="flex items-start gap-2.5">
+                                                <span class="text-ochre text-sm leading-none shrink-0">•</span>
+                                                <span class="text-xs sm:text-sm text-olive-dark/90 font-light">МСПИ</span>
+                                            </div>
+                                            <button type="button" onclick="toggleEduInfo('edu-1')" class="w-5 h-5 rounded-full bg-ochre/15 hover:bg-ochre hover:text-white text-ochre font-serif text-[11px] font-bold flex items-center justify-center shrink-0 transition-all border border-ochre/30" title="Пояснение">!</button>
+                                        </div>
+                                        <div id="edu-1" class="hidden p-2.5 bg-sand-100 border border-olive-soft/20 rounded-xl text-xs text-olive-dark/90 font-light leading-relaxed">
+                                            Московский социально-педагогический институт — профессиональная переподготовка, факультет трансперсональной психологии.
+                                        </div>
+                                    </li>
+                                    <li class="space-y-1.5">
+                                        <div class="flex items-center justify-between gap-2">
+                                            <div class="flex items-start gap-2.5">
+                                                <span class="text-ochre text-sm leading-none shrink-0">•</span>
+                                                <span class="text-xs sm:text-sm text-olive-dark/90 font-light">РУДН</span>
+                                            </div>
+                                            <button type="button" onclick="toggleEduInfo('edu-2')" class="w-5 h-5 rounded-full bg-ochre/15 hover:bg-ochre hover:text-white text-ochre font-serif text-[11px] font-bold flex items-center justify-center shrink-0 transition-all border border-ochre/30" title="Пояснение">!</button>
+                                        </div>
+                                        <div id="edu-2" class="hidden p-2.5 bg-sand-100 border border-olive-soft/20 rounded-xl text-xs text-olive-dark/90 font-light leading-relaxed">
+                                            Российский университет дружбы народов (РУДН) — программа «Современная психосоматика: психологические причины и методы восстановления».
+                                        </div>
+                                    </li>
+                                    <li class="space-y-1.5">
+                                        <div class="flex items-center justify-between gap-2">
+                                            <div class="flex items-start gap-2.5">
+                                                <span class="text-ochre text-sm leading-none shrink-0">•</span>
+                                                <span class="text-xs sm:text-sm text-olive-dark/90 font-light">PSY2.0</span>
+                                            </div>
+                                            <button type="button" onclick="toggleEduInfo('edu-3')" class="w-5 h-5 rounded-full bg-ochre/15 hover:bg-ochre hover:text-white text-ochre font-serif text-[11px] font-bold flex items-center justify-center shrink-0 transition-all border border-ochre/30" title="Пояснение">!</button>
+                                        </div>
+                                        <div id="edu-3" class="hidden p-2.5 bg-sand-100 border border-olive-soft/20 rounded-xl text-xs text-olive-dark/90 font-light leading-relaxed">
+                                            PSY2.0 — профессиональная переподготовка по программе «Психологическое консультирование по методике PSY2.0». Методика объединяет психологическое консультирование и психосоматическую коррекцию симптомов.
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Acting Career -->
+                        <div class="p-6 sm:p-7 bg-sand-50/90 border border-olive-soft/20 rounded-3xl shadow-2xs hover:border-olive-soft/40 transition-all relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="w-8 h-8 rounded-full bg-sand-200/90 text-olive-dark text-xs flex items-center justify-center font-medium border border-olive-soft/30 font-serif">03</span>
+                                    <h3 class="font-serif text-xl sm:text-2xl font-light text-olive-deep tracking-wide">Актёрская деятельность</h3>
+                                </div>
+                                <ul class="space-y-3 text-xs sm:text-sm text-olive-dark/90 font-light">
+                                    <li class="space-y-1.5">
+                                        <div class="flex items-center justify-between gap-2">
+                                            <div class="flex items-start gap-2.5">
+                                                <span class="text-ochre text-sm leading-none shrink-0">•</span>
+                                                <span class="text-xs sm:text-sm text-olive-dark/90 font-light">ГИТИС</span>
+                                            </div>
+                                            <button type="button" onclick="toggleEduInfo('act-1')" class="w-5 h-5 rounded-full bg-ochre/15 hover:bg-ochre hover:text-white text-ochre font-serif text-[11px] font-bold flex items-center justify-center shrink-0 transition-all border border-ochre/30" title="Пояснение">!</button>
+                                        </div>
+                                        <div id="act-1" class="hidden p-2.5 bg-sand-100 border border-olive-soft/20 rounded-xl text-xs text-olive-dark/90 font-light leading-relaxed">
+                                            Выпускница ГИТИСа, актриса театра и кино.
+                                        </div>
+                                    </li>
+                                    <li class="space-y-1.5">
+                                        <div class="flex items-center justify-between gap-2">
+                                            <div class="flex items-start gap-2.5">
+                                                <span class="text-ochre text-sm leading-none shrink-0">•</span>
+                                                <span class="text-xs sm:text-sm text-olive-dark/90 font-light">«Сны Алисы»</span>
+                                            </div>
+                                            <button type="button" onclick="toggleEduInfo('act-2')" class="w-5 h-5 rounded-full bg-ochre/15 hover:bg-ochre hover:text-white text-ochre font-serif text-[11px] font-bold flex items-center justify-center shrink-0 transition-all border border-ochre/30" title="Пояснение">!</button>
+                                        </div>
+                                        <div id="act-2" class="hidden p-2.5 bg-sand-100 border border-olive-soft/20 rounded-xl text-xs text-olive-dark/90 font-light leading-relaxed">
+                                            Исполнительница главной роли в сериале «Сны Алисы», мировая премьера которого состоялась в основном конкурсе международного фестиваля сериалов в Каннах — CANNESERIES (Франция). Проект также был отобран в программу Berlinale Series Market Selects (Германия) и вошёл в международный конкурс Женевского международного кинофестиваля — Geneva International Film Festival (Швейцария).
+                                        </div>
+                                    </li>
+                                    <li class="space-y-1.5">
+                                        <div class="flex items-center justify-between gap-2">
+                                            <div class="flex items-start gap-2.5">
+                                                <span class="text-ochre text-sm leading-none shrink-0">•</span>
+                                                <span class="text-xs sm:text-sm text-olive-dark/90 font-light">Canneseries & Berlinale</span>
+                                            </div>
+                                            <button type="button" onclick="toggleEduInfo('act-3')" class="w-5 h-5 rounded-full bg-ochre/15 hover:bg-ochre hover:text-white text-ochre font-serif text-[11px] font-bold flex items-center justify-center shrink-0 transition-all border border-ochre/30" title="Пояснение">!</button>
+                                        </div>
+                                        <div id="act-3" class="hidden p-2.5 bg-sand-100 border border-olive-soft/20 rounded-xl text-xs text-olive-dark/90 font-light leading-relaxed">
+                                            Участие в международных фестивалях в Каннах (CANNESERIES), Берлине (Berlinale) и Женеве.
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIVIDER -->
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-4 relative z-10">
+            <span class="h-px flex-1 bg-gradient-to-r from-transparent to-olive-soft/40"></span>
+            <span class="interactive-star text-ochre font-serif text-lg leading-none select-none inline-block">✦</span>
+            <span class="h-px flex-1 bg-gradient-to-l from-transparent to-olive-soft/40"></span>
+        </div>
+
+        <!-- APPROACH SECTION -->
+        <section id="approach" class="py-16 sm:py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+                    
+                    <div class="lg:col-span-6 space-y-6">
+                        <div>
+                            <span class="inline-block text-xs uppercase tracking-widest text-muted font-semibold mb-2">
+                                ПОДХОД
+                            </span>
+                        </div>
+
+                        <div class="space-y-3 pb-2">
+                            <p class="font-serif text-lg sm:text-xl text-olive-deep leading-relaxed font-normal">
+                                Терапия со мной — это безопасность, глубина и честность.
+                            </p>
+                            <p class="text-charcoal/80 text-sm sm:text-base leading-relaxed font-light">
+                                Я не верю в быстрые решения. Но я знаю, что психика способна меняться, когда у нее появляется достаточно безопасности, времени и нового опыта.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-olive-deep tracking-wide uppercase leading-tight">
+                                МОЯ ТЕРАПИЯ — ЭТО:
+                            </h2>
+                        </div>
+
+                        <div class="border-t border-olive-soft/20 divide-y divide-olive-soft/20 mt-8">
+                            <div class="py-4 sm:py-5 flex items-baseline gap-4">
+                                <span class="text-xs text-muted font-serif font-light shrink-0">01</span>
+                                <span class="text-sm sm:text-base text-olive-deep font-light">современные методы психотерапии</span>
+                            </div>
+                            <div class="py-4 sm:py-5 flex items-baseline gap-4">
+                                <span class="text-xs text-muted font-serif font-light shrink-0">02</span>
+                                <span class="text-sm sm:text-base text-olive-deep font-light">психосоматическая коррекция</span>
+                            </div>
+                            <div class="py-4 sm:py-5 flex items-baseline gap-4">
+                                <span class="text-xs text-muted font-serif font-light shrink-0">03</span>
+                                <span class="text-sm sm:text-base text-olive-deep font-light">гипнотерапия</span>
+                            </div>
+                            <div class="py-4 sm:py-5 flex items-baseline gap-4">
+                                <span class="text-xs text-muted font-serif font-light shrink-0">04</span>
+                                <span class="text-sm sm:text-base text-olive-deep font-light">эмоционально-образная терапия</span>
+                            </div>
+                            <div class="py-4 sm:py-5 flex items-baseline gap-4">
+                                <span class="text-xs text-muted font-serif font-light shrink-0">05</span>
+                                <span class="text-sm sm:text-base text-olive-deep font-light">телесно-ориентированная терапия</span>
+                            </div>
+                            <div class="py-4 sm:py-5 border-b border-olive-soft/20 flex items-baseline gap-4">
+                                <span class="text-xs text-muted font-serif font-light shrink-0">06</span>
+                                <span class="text-sm sm:text-base text-olive-deep font-light">дыхательные психотехники</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6">
+                        <div class="bg-sand-50/70 backdrop-blur-xs border border-olive-soft/20 p-8 sm:p-10 lg:p-12 rounded-[32px] shadow-xs space-y-8">
+                            <div>
+                                <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-light text-olive-deep tracking-wide uppercase leading-tight">
+                                    ПОЧЕМУ ЭТО РАБОТАЕТ?
+                                </h2>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div class="space-y-2">
+                                    <h3 class="text-xs uppercase tracking-wider font-semibold text-olive-dark">
+                                        1. ИНТЕГРАТИВНЫЙ ПОДХОД
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-charcoal/80 font-light leading-relaxed">
+                                        В своей работе я объединяю несколько подходов и методов психотерапии. Это позволяет одновременно работать с мышлением, эмоциями, бессознательными процессами и телом.
+                                    </p>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <h3 class="text-xs uppercase tracking-wider font-semibold text-olive-dark">
+                                        2. ВЫХОД ЗА УРОВЕНЬ ЛОГИКИ
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-charcoal/80 font-light leading-relaxed">
+                                        Благодаря этому изменения происходят не только на уровне понимания («я всё понял головой»), но и постепенно становятся частью повседневной жизни.
+                                    </p>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <h3 class="text-xs uppercase tracking-wider font-semibold text-olive-dark">
+                                        3. БОЛЬШЕ ВНУТРЕННЕЙ СВОБОДЫ
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-charcoal/80 font-light leading-relaxed">
+                                        Меняются телесные реакции, привычные способы справляться со стрессом, и появляется возможность реагировать по-новому.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-10 sm:mt-14 w-full text-center p-6 sm:p-10 bg-sand-100/80 rounded-2xl sm:rounded-3xl border border-olive-soft/20">
+                    <p class="font-serif text-base sm:text-xl lg:text-2xl text-olive-deep italic font-medium leading-relaxed">
+                        <span class="block">«Результат терапии — это не отсутствие боли,</span>
+                        <span class="block">а возможность реагировать по-новому.»</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIVIDER -->
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-4 relative z-10">
+            <span class="h-px flex-1 bg-gradient-to-r from-transparent to-olive-soft/40"></span>
+            <span class="interactive-star text-ochre font-serif text-lg leading-none select-none inline-block">✦</span>
+            <span class="h-px flex-1 bg-gradient-to-l from-transparent to-olive-soft/40"></span>
+        </div>
+
+        <section id="topics" class="py-16 sm:py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="inline-block text-xs uppercase tracking-widest text-ochre font-semibold">
+                        Направления
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-light text-olive-deep mt-1 tracking-wide">С чем я работаю</h2>
+                    <div class="flex items-center justify-center gap-2 mt-2.5 opacity-60">
+                        <div class="w-12 h-px bg-olive-soft/40"></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Card 01 -->
+                    <div class="relative p-6 sm:p-7 bg-sand-50 border border-sand-300/60 rounded-2xl sm:rounded-3xl hover:border-ochre/40 transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 group overflow-hidden">
+                        <div class="relative z-10">
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-olive-deep mb-2.5 tracking-wide">Тревога и внутреннее напряжение</h3>
+                            <p class="text-charcoal/75 text-xs sm:text-sm leading-relaxed font-light">
+                                Постоянное внутреннее напряжение, <strong class="font-semibold text-ochre-hover">гиперответственность</strong>, невозможность расслабиться, ощущение, что <strong class="font-semibold text-ochre-hover">нужно всё контролировать</strong> и всегда быть начеку.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 02 -->
+                    <div class="relative p-6 sm:p-7 bg-sand-50 border border-sand-300/60 rounded-2xl sm:rounded-3xl hover:border-ochre/40 transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 group overflow-hidden">
+                        <div class="relative z-10">
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-olive-deep mb-2.5 tracking-wide">Психосоматические симптомы и телесные проявления</h3>
+                            <p class="text-charcoal/75 text-xs sm:text-sm leading-relaxed font-light">
+                                Когда <strong class="font-semibold text-ochre-hover">тело реагирует на стресс</strong> болью, хроническим напряжением, усталостью или другими симптомами, даже если <strong class="font-semibold text-ochre-hover">медицинские обследования не объясняют их полностью</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 03 -->
+                    <div class="relative p-6 sm:p-7 bg-sand-50 border border-sand-300/60 rounded-2xl sm:rounded-3xl hover:border-ochre/40 transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 group overflow-hidden">
+                        <div class="relative z-10">
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-olive-deep mb-2.5 tracking-wide">Самооценка и ощущение собственной ценности</h3>
+                            <p class="text-charcoal/75 text-xs sm:text-sm leading-relaxed font-light">
+                                Сомнения в себе, <strong class="font-semibold text-ochre-hover">синдром самозванца</strong>, потеря ощущения внутренней опоры, постоянные попытки <strong class="font-semibold text-ochre-hover">заслужить любовь, признание или право быть собой</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 04 -->
+                    <div class="relative p-6 sm:p-7 bg-sand-50 border border-sand-300/60 rounded-2xl sm:rounded-3xl hover:border-ochre/40 transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 group overflow-hidden">
+                        <div class="relative z-10">
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-olive-deep mb-2.5 tracking-wide">Отношения с собой и другими</h3>
+                            <p class="text-charcoal/75 text-xs sm:text-sm leading-relaxed font-light">
+                                Трудности с близостью, доверием и <strong class="font-semibold text-ochre-hover">личными границами</strong>, повторяющиеся конфликты, <strong class="font-semibold text-ochre-hover">страх быть отвергнутым</strong> или, наоборот, потерять себя в отношениях.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 05 -->
+                    <div class="relative p-6 sm:p-7 bg-sand-50 border border-sand-300/60 rounded-2xl sm:rounded-3xl hover:border-ochre/40 transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 group overflow-hidden">
+                        <div class="relative z-10">
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-olive-deep mb-2.5 tracking-wide">Потеря контакта с собой</h3>
+                            <p class="text-charcoal/75 text-xs sm:text-sm leading-relaxed font-light">
+                                Когда становится сложно понимать свои желания, чувства и потребности, <strong class="font-semibold text-ochre-hover">жизнь проходит «на автомате»</strong>, а внутри появляется <strong class="font-semibold text-ochre-hover">ощущение пустоты или потерянности</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 06 -->
+                    <div class="relative p-6 sm:p-7 bg-sand-50 border border-sand-300/60 rounded-2xl sm:rounded-3xl hover:border-ochre/40 transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 group overflow-hidden">
+                        <div class="relative z-10">
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-olive-deep mb-2.5 tracking-wide">Повторяющиеся жизненные сценарии</h3>
+                            <p class="text-charcoal/75 text-xs sm:text-sm leading-relaxed font-light">
+                                Когда похожие ситуации <strong class="font-semibold text-ochre-hover">снова и снова повторяются</strong> в отношениях, работе, финансах или ощущении себя, словно жизнь каждый раз <strong class="font-semibold text-ochre-hover">приводит в одну и ту же точку</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="mt-8 sm:mt-10 p-6 sm:p-8 bg-sand-50/90 border border-olive-soft/25 rounded-2xl sm:rounded-3xl text-center max-w-4xl mx-auto shadow-xs relative overflow-hidden">
+                    <p class="text-xs sm:text-sm lg:text-base text-charcoal/85 leading-relaxed font-light">
+                        Если вы не нашли свой запрос в этом списке, это не значит, что я с ним не работаю. Иногда человеку сложно сразу назвать проблему словами — и это совершенно нормально.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIVIDER -->
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-4 relative z-10">
+            <span class="h-px flex-1 bg-gradient-to-r from-transparent to-olive-soft/40"></span>
+            <span class="interactive-star text-ochre font-serif text-lg leading-none select-none inline-block">✦</span>
+            <span class="h-px flex-1 bg-gradient-to-l from-transparent to-olive-soft/40"></span>
+        </div>
+
+        <!-- FORMATS SECTION -->
+        <section id="formats" class="py-16 sm:py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="inline-block text-xs uppercase tracking-widest text-ochre font-semibold">
+                        Варианты взаимодействия
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-light text-olive-deep mt-1 tracking-wide">Форматы работы</h2>
+                    <div class="flex items-center justify-center gap-2 mt-2.5 opacity-60">
+                        <div class="w-12 h-px bg-olive-soft/40"></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-16">
+                    <!-- Format 1 -->
+                    <div class="p-6 sm:p-8 bg-[#E5DED3] rounded-3xl border border-[#D5CDBF] flex flex-col justify-between shadow-xs transition-all duration-300 hover:shadow-md min-w-0 relative">
+                        <div>
+                            <div class="w-10 h-10 rounded-full bg-[#546555] text-sand-50 flex items-center justify-center mb-4 shadow-xs">
+                                <i data-lucide="user" class="w-5 h-5 text-sand-100"></i>
+                            </div>
+                            <h3 class="font-serif text-xl sm:text-2xl font-light text-olive-deep mb-3 tracking-wide break-words">
+                                Личная терапия
+                            </h3>
+                            <div class="flex flex-wrap items-center gap-2 mb-4">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-sand-50/90 rounded-full text-xs font-medium text-olive-dark border border-olive-soft/20">
+                                    Онлайн и очно в Москве
+                                </span>
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-sand-50/90 rounded-full text-xs font-medium text-olive-dark border border-olive-soft/20">
+                                    1 — 1,5 часа
+                                </span>
+                            </div>
+                            <p class="text-charcoal/80 leading-relaxed font-light text-xs sm:text-sm mb-6">
+                                Индивидуальная работа, выстроенная вокруг вашего запроса, жизненной ситуации и темпа, в котором вы готовы двигаться.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-olive-dark/15 space-y-3">
+                            <div class="flex items-baseline justify-between flex-wrap gap-2">
+                                <span class="text-[10px] uppercase tracking-wider text-muted font-medium">СТОИМОСТЬ</span>
+                                <span class="font-serif text-xl sm:text-2xl font-normal text-olive-deep">7 000 ₽</span>
+                            </div>
+                            <a href="#booking" class="w-full inline-flex items-center justify-center py-3 bg-[#546555] hover:bg-olive-dark text-white text-xs uppercase tracking-wider font-medium rounded-full transition-all shadow-xs">
+                                Записаться
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Format 2 -->
+                    <div class="p-6 sm:p-8 bg-[#546555] text-sand-50 rounded-3xl border border-[#485749] flex flex-col justify-between shadow-md transition-all duration-300 hover:shadow-lg relative overflow-hidden min-w-0">
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-between gap-2 mb-4">
+                                <div class="w-10 h-10 rounded-full bg-white/10 text-sand-100 border border-white/15 flex items-center justify-center">
+                                    <i data-lucide="sparkles" class="w-5 h-5 text-sand-200"></i>
+                                </div>
+                                <span class="bg-[#3B483C] text-sand-100 text-[9px] uppercase font-medium px-2.5 py-1 rounded-full tracking-wider shrink-0">
+                                    Индивидуальный формат
+                                </span>
+                            </div>
+                            <h3 class="font-serif text-xl sm:text-2xl font-light text-white mb-2 tracking-wide break-words">
+                                Личное сопровождение
+                            </h3>
+                            <p class="text-sand-100/90 text-xs sm:text-sm font-light mb-5 leading-relaxed">
+                                Для тех, кто хочет работать глубже и нуждается в поддержке между сессиями.
+                            </p>
+                            <div class="bg-[#485749]/60 border border-white/15 rounded-xl p-4 mb-6 space-y-2">
+                                <div class="text-[10px] uppercase tracking-wider text-sand-200 font-semibold mb-1">
+                                    В СОПРОВОЖДЕНИЕ ВХОДИТ:
+                                </div>
+                                <ul class="space-y-1.5 text-xs text-sand-100/95 font-light">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-sand-200 shrink-0">•</span>
+                                        <span><strong>4 индивидуальные</strong> терапевтические встречи</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-sand-200 shrink-0">•</span>
+                                        <span>Поддержка и обратная связь в мессенджере</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-sand-200 shrink-0">•</span>
+                                        <span>Персональные дыхательные и телесные практики</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-white/20 space-y-3 relative z-10">
+                            <div class="flex items-baseline justify-between flex-wrap gap-2">
+                                <span class="text-[10px] uppercase tracking-wider text-sand-200/90 font-medium">СТОИМОСТЬ</span>
+                                <span class="font-serif text-xl sm:text-2xl font-normal text-white">35 000 ₽ <span class="text-[11px] font-sans text-sand-200/80">/ месяц</span></span>
+                            </div>
+                            <div class="flex items-center gap-2.5">
+                                <a href="#booking" class="flex-1 inline-flex items-center justify-center py-3 bg-white hover:bg-sand-50 text-[#3B483C] text-xs uppercase tracking-wider font-semibold rounded-full transition-all shadow-xs">
+                                    Подробнее
+                                </a>
+                                <a href="https://t.me/gvasaliya" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white hover:text-[#3B483C] border border-white/20 flex items-center justify-center text-sand-50 transition-all shrink-0" aria-label="Telegram">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-10 text-center">
+                    <span class="text-[10px] uppercase tracking-widest text-muted font-medium">
+                        ГРУППОВЫЕ ПРОГРАММЫ И ИНТЕНСИВЫ
+                    </span>
+                    <h3 class="font-serif text-2xl sm:text-4xl font-light text-olive-deep mt-1 tracking-wide">
+                        Групповые программы
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+                    <!-- Group Card 1 -->
+                    <div class="p-6 sm:p-7 bg-[#E5DED3] rounded-3xl border border-[#D5CDBF] flex flex-col justify-between transition-all duration-300 hover:shadow-md min-w-0 relative">
+                        <div>
+                            <div class="text-[10px] uppercase tracking-wider font-medium text-muted mb-2">
+                                ПРАКТИКА // 4 ЧАСА
+                            </div>
+                            <h4 class="font-serif text-xl sm:text-2xl font-light text-olive-deep mb-2.5 tracking-wide leading-tight break-words">
+                                Телесная осознанность
+                            </h4>
+                            <div class="flex items-center gap-1.5 text-xs font-medium text-olive-dark mb-4">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 text-ochre shrink-0"></i>
+                                <span>29 августа • 18:00–22:00</span>
+                            </div>
+                            <p class="text-charcoal/80 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                                Четыре часа дыхательных, телесных и практик на саморегуляцию для тех, кто хочет замедлиться, выдохнуть и вернуть контакт с собой.
+                            </p>
+                        </div>
+                        <div class="space-y-3 pt-3">
+                            <div class="flex items-baseline justify-between border-t border-olive-dark/10 pt-3">
+                                <span class="text-[10px] uppercase tracking-wider text-muted font-medium">СТОИМОСТЬ</span>
+                                <span class="font-serif text-xl sm:text-2xl font-normal text-olive-deep">5 000 ₽</span>
+                            </div>
+                            <a href="https://t.me/gvasaliya" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center py-3 bg-[#546555] hover:bg-olive-dark text-white text-xs uppercase tracking-wider font-medium rounded-full transition-all shadow-xs">
+                                Записаться
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Group Card 2 -->
+                    <div class="p-6 sm:p-7 bg-[#546555] text-sand-50 rounded-3xl border border-[#485749] flex flex-col justify-between shadow-md relative transition-all duration-300 hover:shadow-lg min-w-0">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <div class="text-[10px] uppercase tracking-wider font-medium text-sand-200/80 shrink">
+                                    ИНТЕНСИВ // 3 ДНЯ
+                                </div>
+                                <span class="bg-[#3B483C] text-sand-100 text-[9px] uppercase font-medium px-2.5 py-0.5 rounded-full tracking-wider shrink-0">
+                                    Главный анонс
+                                </span>
+                            </div>
+                            <h4 class="font-serif text-xl sm:text-2xl font-light text-white mb-3 tracking-wide leading-tight break-words">
+                                PRO ТЕЛО
+                            </h4>
+                            <p class="text-sand-100/90 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                                Трехдневный практический интенсив о том, как формируется стресс, почему тело говорит через симптомы и как научиться его понимать.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-end border-t border-white/20 pt-3 text-xs font-medium text-sand-100">
+                                <span class="font-serif text-lg font-normal text-white">16 000 ₽</span>
+                            </div>
+                            <a href="/protelo/" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center py-3 bg-white hover:bg-sand-50 text-[#3B483C] text-xs uppercase tracking-wider font-semibold rounded-full transition-all shadow-xs">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Group Card 3 -->
+                    <div class="p-6 sm:p-7 bg-[#E5DED3] rounded-3xl border border-[#D5CDBF] flex flex-col justify-between transition-all duration-300 hover:shadow-md min-w-0 relative">
+                        <div>
+                            <div class="text-[10px] uppercase tracking-wider font-medium text-muted mb-2">
+                                ОНЛАЙН // 2 НЕДЕЛИ
+                            </div>
+                            <h4 class="font-serif text-xl sm:text-2xl font-light text-olive-deep mb-2.5 tracking-wide leading-tight break-words">
+                                Онлайн-практикум по дыханию
+                            </h4>
+                            <div class="flex items-center gap-1.5 text-xs font-medium text-olive-dark mb-4">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 text-ochre shrink-0"></i>
+                                <span>17–30 августа</span>
+                            </div>
+                            <p class="text-charcoal/80 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                                Две недели ежедневной практики дыхания для возвращения устойчивости и контакта с собой.
+                            </p>
+                        </div>
+                        <div class="space-y-3 pt-3">
+                            <div class="flex items-baseline justify-between border-t border-olive-dark/10 pt-3">
+                                <span class="text-[10px] uppercase tracking-wider text-muted font-medium">СТОИМОСТЬ</span>
+                                <span class="font-serif text-xl sm:text-2xl font-normal text-olive-deep">5 000 ₽</span>
+                            </div>
+                            <button type="button" disabled class="w-full inline-flex items-center justify-center py-3 bg-olive-soft/30 text-olive-dark/50 text-xs uppercase tracking-wider font-medium rounded-full cursor-not-allowed">
+                                Запись скоро откроется
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS SECTION -->
+        <section class="py-16 sm:py-24 relative z-10">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="inline-block text-xs uppercase tracking-widest text-ochre font-semibold">
+                        Процесс
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-light text-olive-deep mt-1 tracking-wide">Как проходит работа</h2>
+                    <div class="flex items-center justify-center gap-2 mt-2.5 opacity-60">
+                        <div class="w-12 h-px bg-olive-soft/40"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-4 sm:space-y-5">
+                    <div class="p-6 sm:p-7 bg-sand-50/80 border border-olive-soft/20 rounded-2xl flex flex-col md:flex-row gap-4 sm:gap-6 items-start shadow-xs hover:border-olive-soft/40 transition-all relative">
+                        <div class="w-10 h-10 rounded-full bg-sand-200 text-ochre font-serif text-base font-normal flex items-center justify-center shrink-0">
+                            01
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-xl sm:text-2xl font-light text-olive-deep mb-1.5 tracking-wide">Первое знакомство и диагностика</h3>
+                            <p class="text-muted text-xs sm:text-sm leading-relaxed font-light">
+                                Каждая терапия начинается со знакомства. Мы вместе разбираемся, что привело вас сейчас, определяем запрос и понимаем, в каком направлении хочется двигаться дальше.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 sm:p-7 bg-sand-50/80 border border-olive-soft/20 rounded-2xl flex flex-col md:flex-row gap-4 sm:gap-6 items-start shadow-xs hover:border-olive-soft/40 transition-all relative">
+                        <div class="w-10 h-10 rounded-full bg-sand-200 text-ochre font-serif text-base font-normal flex items-center justify-center shrink-0">
+                            02
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-xl sm:text-2xl font-light text-olive-deep mb-1.5 tracking-wide">Индивидуальный путь без шаблонов</h3>
+                            <p class="text-muted text-xs sm:text-sm leading-relaxed font-light">
+                                Я не работаю по готовым схемам, потому что не бывает двух одинаковых людей. В работе мне важно учитывать не только запрос, но и особенности вашей личности, жизненный опыт, темп и способы, которыми вы привыкли справляться со сложностями.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 sm:p-7 bg-sand-50/80 border border-olive-soft/20 rounded-2xl flex flex-col md:flex-row gap-4 sm:gap-6 items-start shadow-xs hover:border-olive-soft/40 transition-all relative">
+                        <div class="w-10 h-10 rounded-full bg-sand-200 text-ochre font-serif text-base font-normal flex items-center justify-center shrink-0">
+                            03
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-xl sm:text-2xl font-light text-olive-deep mb-1.5 tracking-wide">Живой терапевтический процесс</h3>
+                            <p class="text-muted text-xs sm:text-sm leading-relaxed font-light">
+                                Поэтому терапия для меня — это всегда живой процесс, который строится вокруг конкретного человека, а не вокруг заранее заданного метода.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEWS SECTION -->
+        <section id="reviews" class="py-16 sm:py-24 relative z-10 overflow-hidden">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="inline-block text-xs uppercase tracking-widest text-ochre font-semibold">
+                        Обратная связь
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-light text-olive-deep mt-1 tracking-wide">Отзывы</h2>
+                    <div class="flex items-center justify-center gap-2 mt-2.5 opacity-60">
+                        <div class="w-12 h-px bg-olive-soft/40"></div>
+                    </div>
+                </div>
+
+                <div class="relative max-w-3xl mx-auto">
+                    <div id="reviews-slider" class="relative min-h-[240px] flex items-center justify-center">
+                        
+                        <div class="review-slide active slide-transition p-6 sm:p-10 bg-sand-50 border border-olive-soft/20 rounded-3xl shadow-xs w-full relative">
+                            <p class="font-serif text-base sm:text-xl text-olive-deep leading-relaxed mb-6 font-normal">
+                                «Алина, я искренне считаю, что ты просто сильно и далеко круче, чем самые крутые специалисты, с которыми я работал. А работал я с людьми самой разной крутости.<br><br>Короче, я хочу сказать, что <strong class="font-semibold text-ochre-hover">ты — номер 1</strong>. Это <strong class="font-semibold text-ochre-hover">выдающиеся способности</strong>!»
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-olive-dark text-sand-50 font-serif flex items-center justify-center text-xs rounded-full shrink-0 border border-olive-soft/30">ДА</div>
+                                <div class="font-medium text-olive-deep text-xs sm:text-sm">Данил</div>
+                            </div>
+                        </div>
+
+                        <div class="review-slide hidden slide-transition p-6 sm:p-10 bg-sand-50 border border-olive-soft/20 rounded-3xl shadow-xs w-full relative">
+                            <p class="font-serif text-base sm:text-xl text-olive-deep leading-relaxed mb-6 font-normal">
+                                «Алина, божечки, спасибо, что ты есть! И за все встречи с тобой, и за дыхательные упражнения, и за медитацию, и за эмоционально-образную терапию, и за всё-всё-всё.<br><br>Я сейчас дышал «океаном» под твой голос полтора часа, так как внутри после одной ситуации был сумбур. <strong class="font-semibold text-ochre-hover">Натуральным образом увидел свою подсознательную защиту</strong>, которая не пускала меня туда, куда я хотел. И я с ней, кажется, договорился) Понял, от чего она меня защищает и почему, пообещал ей, что буду очень осторожен. Вроде бы понял, чего пока делать не стоит, но куда уже можно пробовать ходить.<br><br>Сейчас <strong class="font-semibold text-ochre-hover">ощущение радости и одновременно покоя</strong>».
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-ochre text-sand-50 font-serif flex items-center justify-center text-xs rounded-full shrink-0 border border-ochre-soft">БО</div>
+                                <div class="font-medium text-olive-deep text-xs sm:text-sm">Богдан</div>
+                            </div>
+                        </div>
+
+                        <div class="review-slide hidden slide-transition p-6 sm:p-10 bg-sand-50 border border-olive-soft/20 rounded-3xl shadow-xs w-full relative">
+                            <p class="font-serif text-base sm:text-xl text-olive-deep leading-relaxed mb-6 font-normal">
+                                «Алина, благодарю тебя за работу!<br><br>Очень нравится твой подход — <strong class="font-semibold text-ochre-hover">бережно, мягко и глубоко</strong> заходить в самые непростые темы и переводить их в ресурс. Мне очень заходит работа с образами через тело — для меня это самый действенный метод. И ты виртуозно с этим работаешь.<br><br>Наша работа помогла мне <strong class="font-semibold text-ochre-hover">справиться с тревожностью</strong> и понять разные процессы, которые происходят во мне и моей психике, подсветила моменты, которые я не замечала. Спасибо тебе!»
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-olive-dark text-sand-50 font-serif flex items-center justify-center text-xs rounded-full shrink-0 border border-olive-soft/30">МА</div>
+                                <div class="font-medium text-olive-deep text-xs sm:text-sm">Мария</div>
+                            </div>
+                        </div>
+
+                        <div class="review-slide hidden slide-transition p-6 sm:p-10 bg-sand-50 border border-olive-soft/20 rounded-3xl shadow-xs w-full relative">
+                            <p class="font-serif text-base sm:text-xl text-olive-deep leading-relaxed mb-6 font-normal">
+                                «Я 10 лет в терапии, но <strong class="font-semibold text-ochre-hover">истинная работа для меня началась только с тобой</strong>».
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-ochre text-sand-50 font-serif flex items-center justify-center text-xs rounded-full shrink-0 border border-ochre-soft">АН</div>
+                                <div class="font-medium text-olive-deep text-xs sm:text-sm">Анна</div>
+                            </div>
+                        </div>
+
+                        <div class="review-slide hidden slide-transition p-6 sm:p-10 bg-sand-50 border border-olive-soft/20 rounded-3xl shadow-xs w-full relative">
+                            <p class="font-serif text-base sm:text-xl text-olive-deep leading-relaxed mb-6 font-normal">
+                                «Алиночка, дорогая, благодарю за <strong class="font-semibold text-ochre-hover">чудесное и волшебное поле любви, доверия, заботы и тепла</strong>!<br><br>За ненавязчивое желание сделать всё возможное для понимания и собственного осознания. Ты <strong class="font-semibold text-ochre-hover">прекрасный проводник</strong> с уникальным и бережным отношением.<br><br>Я благодарна за то, что мне посчастливилось познакомиться с тобой, довериться и побывать в твоем поле».
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-olive-dark text-sand-50 font-serif flex items-center justify-center text-xs rounded-full shrink-0 border border-olive-soft/30">КС</div>
+                                <div class="font-medium text-olive-deep text-xs sm:text-sm">Ксения</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="flex items-center justify-between mt-6">
+                        <button id="prev-review" class="px-4 py-2 bg-sand-50 hover:bg-olive-dark hover:text-sand-50 text-olive-dark border border-olive-soft/20 rounded-full text-xs uppercase tracking-wider transition-all focus:outline-none shadow-xs">
+                            ← Назад
+                        </button>
+
+                        <div class="flex items-center space-x-2" id="review-dots">
+                            <button class="dot-btn w-2.5 h-2.5 rounded-full bg-ochre transition-all" data-index="0" aria-label="Слайд 1"></button>
+                            <button class="dot-btn w-2.5 h-2.5 rounded-full bg-sand-300 transition-all" data-index="1" aria-label="Слайд 2"></button>
+                            <button class="dot-btn w-2.5 h-2.5 rounded-full bg-sand-300 transition-all" data-index="2" aria-label="Слайд 3"></button>
+                            <button class="dot-btn w-2.5 h-2.5 rounded-full bg-sand-300 transition-all" data-index="3" aria-label="Слайд 4"></button>
+                            <button class="dot-btn w-2.5 h-2.5 rounded-full bg-sand-300 transition-all" data-index="4" aria-label="Слайд 5"></button>
+                        </div>
+
+                        <button id="next-review" class="px-4 py-2 bg-sand-50 hover:bg-olive-dark hover:text-sand-50 text-olive-dark border border-olive-soft/20 rounded-full text-xs uppercase tracking-wider transition-all focus:outline-none shadow-xs">
+                            Вперед →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOOKING SECTION -->
+        <section id="booking" class="py-16 sm:py-24 relative overflow-hidden z-10">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="p-8 sm:p-12 bg-[#546555] text-sand-50 rounded-3xl border border-[#485749] shadow-xl text-center relative overflow-hidden">
+                    <div class="absolute -top-16 -right-16 w-60 h-60 bg-ochre/15 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <h2 class="font-serif text-3xl sm:text-4xl font-light mb-3 tracking-wide text-white relative z-10">Записаться</h2>
+
+                    <p class="text-sand-100/90 text-sm sm:text-base font-light leading-relaxed max-w-xl mx-auto mb-8 relative z-10">
+                        Если вы чувствуете, что пришло время разобраться в себе и хотите понять, подойдёт ли вам такой формат работы, напишите мне в Telegram. Расскажите о своём запросе, и мы договоримся о первой встрече.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 relative z-10">
+                        <a href="https://t.me/gvasaliya" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 bg-white hover:bg-sand-50 text-[#3B483C] text-xs uppercase tracking-wider font-semibold transition-all shadow-md rounded-full gap-2">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Написать в Telegram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="bg-sand-50 border-t border-olive-soft/20 text-charcoal py-10 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col items-center text-center gap-3">
+                    <h3 class="font-serif text-xl font-light tracking-wide text-olive-deep">Алина Гвасалия</h3>
+                    <p class="text-[11px] uppercase tracking-wider text-muted">Актриса, интегративный психолог.</p>
+                    <a href="https://t.me/gvasaliya" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-olive-dark hover:text-ochre transition-colors text-xs uppercase tracking-wider font-medium mt-1">
+                        <i data-lucide="send" class="w-3.5 h-3.5 text-ochre"></i>
+                        <span>Блог в Telegram</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- 2. DEDICATED PAGE: «МОЙ ПУТЬ В ПСИХОЛОГИЮ» (/about) VIEW -->
+    <div id="view-path" class="view-transition hidden relative z-10 pt-28 sm:pt-36 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto relative z-10">
+
+            <!-- Back to Home Button / Breadcrumb -->
+            <div class="mb-8">
+                <a href="javascript:void(0)" onclick="navigateTo('main')" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-olive-dark hover:text-ochre bg-sand-50/80 border border-olive-soft/20 px-5 py-2.5 rounded-full transition-all shadow-2xs">
+                    <i data-lucide="arrow-left" class="w-4 h-4 text-ochre"></i>
+                    <span>На главную</span>
+                </a>
+            </div>
+
+            <!-- Page Title Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+                <span class="inline-block text-xs uppercase tracking-widest text-ochre font-semibold mb-2">
+                    ЛИЧНАЯ ИСТОРИЯ
+                </span>
+                <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-olive-deep tracking-wide leading-tight">
+                    Мой путь в психологию
+                </h1>
+                <p class="text-muted text-xs sm:text-sm font-light mt-3 max-w-xl mx-auto leading-relaxed">
+                    Как искусство, личные поиски и глубинная работа с мышлением сложились в интегративный подход
+                </p>
+                <div class="flex items-center justify-center gap-2 mt-4 opacity-60">
+                    <div class="w-16 h-px bg-olive-soft/40"></div>
+                </div>
+            </div>
+
+            <!-- Cascading Narrative Section with Continuous Life Line (SVG) -->
+            <div class="relative">
+
+                <!-- DECORATION: SVG SPIRAL LIFE LINE FOR DESKTOP -->
+                <div class="absolute inset-0 pointer-events-none z-0 hidden md:block opacity-70">
+                    <svg class="w-full h-full" viewBox="0 0 800 1350" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="pathSpiralGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#B76A43" stop-opacity="0.55"/>
+                                <stop offset="25%" stop-color="#5A6C5C" stop-opacity="0.5"/>
+                                <stop offset="50%" stop-color="#B76A43" stop-opacity="0.55"/>
+                                <stop offset="75%" stop-color="#5A6C5C" stop-opacity="0.45"/>
+                                <stop offset="100%" stop-color="#B76A43" stop-opacity="0.35"/>
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Spiral thread winding down through the story -->
+                        <path 
+                            d="M 400.0,30.0 L 428.9,37.2 L 457.7,44.4 L 485.9,51.6 L 512.6,58.8 L 537.3,66.0 L 559.3,73.2 L 578.0,80.4 L 592.9,87.7 L 603.6,94.9 L 609.8,102.1 L 611.1,109.3 L 607.5,116.5 L 599.1,123.7 L 585.8,130.9 L 568.0,138.1 L 546.1,145.3 L 520.5,152.5 L 491.7,159.7 L 460.5,166.9 L 427.6,174.1 L 393.7,181.3 L 359.6,188.5 L 326.3,195.8 L 294.5,203.0 L 264.9,210.2 L 238.3,217.4 L 215.5,224.6 L 196.8,231.8 L 182.8,239.0 L 173.9,246.2 L 170.2,253.4 L 171.9,260.6 L 178.8,267.8 L 190.9,275.0 L 207.7,282.2 L 228.9,289.4 L 254.0,296.6 L 282.2,303.9 L 313.0,311.1 L 345.4,318.3 L 378.9,325.5 L 412.5,332.7 L 445.4,339.9 L 476.8,347.1 L 506.1,354.3 L 532.5,361.5 L 555.5,368.7 L 574.5,375.9 L 589.3,383.1 L 599.4,390.3 L 604.8,397.5 L 605.4,404.7 L 601.2,412.0 L 592.6,419.2 L 579.7,426.4 L 563.0,433.6 L 542.9,440.8 L 520.0,448.0 L 494.8,455.2 L 468.0,462.4 L 440.3,469.6 L 412.3,476.8 L 384.6,484.0 L 357.9,491.2 L 332.8,498.4 L 309.7,505.6 L 289.2,512.8 L 271.6,520.1 L 257.3,527.3 L 246.5,534.5 L 239.4,541.7 L 235.9,548.9 L 236.3,556.1 L 240.2,563.3 L 247.7,570.5 L 258.3,577.7 L 272.0,584.9 L 288.3,592.1 L 306.7,599.3 L 327.0,606.5 L 348.7,613.7 L 371.2,620.9 L 394.1,628.2 L 417.0,635.4 L 439.3,642.6 L 460.6,649.8 L 480.5,657.0 L 498.5,664.2 L 514.4,671.4 L 527.7,678.6 L 538.2,685.8 L 545.7,693.0 L 550.0,700.2 L 551.1,707.4 L 548.8,714.6 L 543.2,721.8 L 534.3,729.1 L 522.4,736.3 L 507.5,743.5 L 490.1,750.7 L 470.4,757.9 L 448.8,765.1 L 425.7,772.3 L 401.7,779.5 L 377.2,786.7 L 352.7,793.9 L 328.8,801.1 L 306.0,808.3 L 284.9,815.5 L 265.9,822.7 L 249.7,829.9 L 236.5,837.2 L 226.7,844.4 L 220.8,851.6 L 218.8,858.8 L 221.0,866.0 L 227.4,873.2 L 237.9,880.4 L 252.5,887.6 L 270.8,894.8 L 292.5,902.0 L 317.2,909.2 L 344.3,916.4 L 373.3,923.6 L 403.6,930.8 L 434.3,938.0 L 464.9,945.3 L 494.5,952.5 L 522.4,959.7 L 548.0,966.9 L 570.5,974.1 L 589.4,981.3 L 604.2,988.5 L 614.4,995.7 L 619.8,1002.9 L 620.1,1010.1 L 615.3,1017.3 L 605.4,1024.5 L 590.6,1031.7 L 571.2,1038.9 L 547.6,1046.1 L 520.5,1053.4 L 490.4,1060.6 L 458.0,1067.8 L 424.1,1075.0 L 389.5,1082.2 L 355.1,1089.4 L 321.7,1096.6 L 290.0,1103.8 L 261.0,1111.0 L 235.2,1118.2 L 213.2,1125.4 L 195.7,1132.6 L 183.0,1139.8 L 175.4,1147.0 L 173.0,1154.2 L 175.9,1161.5 L 183.9,1168.7 L 196.9,1175.9 L 214.4,1183.1 L 236.0,1190.3 L 261.2,1197.5 L 289.2,1204.7 L 319.5,1211.9 L 351.1,1219.1 L 383.5,1226.3 L 415.7,1233.5 L 447.0,1240.7 L 476.7,1247.9 L 504.1,1255.1 L 528.7,1262.3 L 549.8,1269.6 L 567.1,1276.8 L 580.2,1284.0 L 588.9,1291.2 L 593.2,1298.4 L 593.0,1305.6 L 588.3,1312.8 L 579.5,1320.0" 
+                            stroke="url(#pathSpiralGrad)" 
+                            stroke-width="2" 
+                            stroke-linecap="round"
+                            fill="none" 
+                        />
+
+                        <!-- Glowing node dots on key story milestones -->
+                        <circle cx="377.3" cy="184.8" r="4.5" fill="#B76A43" opacity="0.85" />
+                        <circle cx="504.5" cy="452.5" r="4.5" fill="#5A6C5C" opacity="0.85" />
+                        <circle cx="544.8" cy="720.1" r="4.5" fill="#B76A43" opacity="0.85" />
+                        <circle cx="603.0" cy="987.8" r="4.5" fill="#5A6C5C" opacity="0.85" />
+                        <circle cx="505.4" cy="1255.5" r="4.5" fill="#B76A43" opacity="0.85" />
+                    </svg>
+                </div>
+
+                <!-- DECORATION: VERTICAL LIFE LINE FOR MOBILE SMARTPHONES -->
+                <div class="absolute left-4 top-2 bottom-2 w-0.5 bg-gradient-to-b from-ochre/40 via-olive-soft/40 to-ochre/20 pointer-events-none z-0 md:hidden"></div>
+
+                <!-- CASCADING PARAGRAPHS (Left, Right, Center, Left, Right...) -->
+                <div class="space-y-12 sm:space-y-20 relative z-10 pl-8 sm:pl-0">
+
+                    <!-- Block 1: Shifted Left with Photo -->
+                    <div class="w-full md:w-11/12 lg:w-10/12 md:mr-auto">
+                        <div class="relative">
+                            <div class="absolute -inset-2 bg-ochre-glow rounded-3xl blur-xl opacity-60"></div>
+                            <div class="relative flex flex-col md:flex-row gap-6 sm:gap-8 items-center bg-sand-50/80 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-olive-soft/20 shadow-xs">
+                                <div class="w-36 sm:w-44 shrink-0 relative group">
+                                    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-olive-soft/25 via-ochre/25 to-sand-200 blur-xs"></div>
+                                    <div class="photo-3d relative border border-olive-soft/20 p-1.5 bg-sand-50 rounded-2xl overflow-hidden">
+                                        <div class="overflow-hidden rounded-xl aspect-[3/4]">
+                                            <img 
+                                                src="assets/portrait-1.jpg" 
+                                                alt="Алина Гвасалия" 
+                                                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-y-3.5 text-charcoal/90 text-sm sm:text-base leading-relaxed font-light">
+                                    <div class="inline-flex items-center gap-2.5">
+                                        <span class="w-7 h-7 rounded-full bg-sand-200/90 text-olive-dark text-[11px] flex items-center justify-center font-medium border border-olive-soft/30 font-serif shrink-0">I</span>
+                                        <span class="text-xs uppercase tracking-widest text-ochre font-semibold">Истоки и театр</span>
+                                    </div>
+                                    <p>
+                                        Мой путь в психологию начался нелинейно и задолго до получения диплома. Первой профессией в моей жизни стало актерское мастерство. Для меня оно всегда было способом исследовать человека — его мотивы, невидимые движения души и глубинные переживания.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Block 2: Shifted Right -->
+                    <div class="w-full md:w-10/12 lg:w-8/12 md:ml-auto">
+                        <div class="relative">
+                            <div class="absolute -inset-2 bg-olive-glow rounded-3xl blur-xl opacity-50"></div>
+                            <div class="relative p-6 sm:p-8 bg-sand-50/90 backdrop-blur-md rounded-3xl border border-olive-soft/20 shadow-xs">
+                                <div class="inline-flex items-center gap-2.5 mb-3">
+                                    <span class="w-7 h-7 rounded-full bg-sand-100 text-olive-dark text-[11px] flex items-center justify-center font-medium border border-olive-soft/30 font-serif shrink-0">II</span>
+                                    <span class="text-xs uppercase tracking-widest text-olive-dark font-semibold">Поиск глубинных ответов</span>
+                                </div>
+                                <p class="text-olive-deep font-serif text-lg sm:text-xl leading-relaxed font-normal">
+                                    Но в какой-то момент мне перестало хватать искусства, чтобы отвечать на вопросы, которые по-настоящему меня волновали: 
+                                    <span class="italic text-ochre block mt-2 font-serif">«Как на самом деле устроен человек? Почему мы чувствуем именно так, а не иначе? Как формируются наши способы реагирования? И что помогает нам действительно меняться, а не только понимать себя на уровне логики?»</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Block 3: Shifted Left / Center -->
+                    <div class="w-full md:w-9/12 lg:w-8/12 md:mr-auto">
+                        <div class="p-6 sm:p-8 bg-sand-50/70 backdrop-blur-md rounded-3xl border border-olive-soft/15 space-y-4 text-charcoal/90 text-sm sm:text-base leading-relaxed font-light shadow-2xs">
+                            <div class="inline-flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-full bg-sand-200/90 text-olive-dark text-[11px] flex items-center justify-center font-medium border border-olive-soft/30 font-serif shrink-0">III</span>
+                                <span class="text-xs uppercase tracking-widest text-ochre font-semibold">Личный опыт</span>
+                            </div>
+                            <p>
+                                Эти вопросы привели меня сначала в личную терапию, а затем — к профессиональному изучению психологии.
+                            </p>
+                            <p>
+                                Этот путь был для меня не просто обучением. Он оказался очень личным. Я хорошо знаю, каково это — не понимать, кто ты, не чувствовать себя, не слышать свое тело и искать опору снаружи, потому что внутри она пока не ощущается. Именно поэтому сегодня в своей работе меня интересует не только то, что происходит с человеком сейчас, но и история, которая стоит за этим.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Block 4: Atmospheric Center Quote Box -->
+                    <div class="w-full md:w-11/12 lg:w-10/12 mx-auto relative">
+                        <div class="relative">
+                            <div class="absolute -inset-3 bg-gradient-to-r from-ochre/15 via-olive-soft/15 to-ochre/15 rounded-3xl blur-2xl"></div>
+                            <div class="relative p-6 sm:p-10 bg-sand-50/95 border-l-4 border-olive-dark rounded-2xl sm:rounded-3xl shadow-sm border-y border-r border-olive-soft/20">
+                                <span class="font-serif text-4xl sm:text-5xl text-ochre/70 leading-none block mb-2">"</span>
+                                <p class="font-serif text-lg sm:text-2xl text-olive-deep leading-relaxed font-normal text-center sm:text-left">
+                                    «Я не верю в "плохих" людей и "неправильные" реакции. Я верю, что у каждого симптома, чувства или способа поведения когда-то была очень важная причина.»
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Block 5: Shifted Left -->
+                    <div class="w-full md:w-10/12 lg:w-8/12 md:mr-auto">
+                        <div class="p-6 sm:p-8 bg-sand-50/80 backdrop-blur-md rounded-3xl border border-olive-soft/15 text-charcoal/90 text-sm sm:text-base leading-relaxed font-light relative shadow-xs">
+                            <div class="inline-flex items-center gap-2.5 mb-3">
+                                <span class="w-7 h-7 rounded-full bg-sand-200/90 text-olive-dark text-[11px] flex items-center justify-center font-medium border border-olive-soft/30 font-serif shrink-0">IV</span>
+                                <span class="text-xs uppercase tracking-widest text-ochre font-semibold">Видеть себя целиком</span>
+                            </div>
+                            <p>
+                                Сегодня моя задача — помочь вам увидеть себя целиком. Увидеть тот самый уникальный узор, который сложился из вашего жизненного опыта. Все, что с вами происходило, все ваши способы адаптации и выживания появились не случайно. Когда-то они помогли вам справиться.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Block 6: Shifted Right -->
+                    <div class="w-full md:w-9/12 lg:w-8/12 md:ml-auto">
+                        <div class="p-6 sm:p-8 bg-sand-50/90 backdrop-blur-md rounded-3xl border border-olive-soft/20 shadow-xs text-charcoal/90 text-sm sm:text-base leading-relaxed font-light relative">
+                            <div class="inline-flex items-center gap-2.5 mb-3">
+                                <span class="w-7 h-7 rounded-full bg-sand-100 text-olive-dark text-[11px] flex items-center justify-center font-medium border border-olive-soft/30 font-serif shrink-0">V</span>
+                                <span class="text-xs uppercase tracking-widest text-olive-dark font-semibold">Практика сегодня</span>
+                            </div>
+                            <p>
+                                Сегодня я веду частную практику, работаю с индивидуальными клиентами, веду группы, тренинги и обучающие проекты, продолжая углублять свое образование. Потому что для меня психотерапия — это профессия, в которой невозможно перестать быть учеником.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Path View Bottom CTA Block -->
+            <div class="mt-20 pt-12 border-t border-olive-soft/20 text-center space-y-8">
+                <div class="flex items-center justify-center gap-2 opacity-60">
+                    <div class="w-16 h-px bg-olive-soft/40"></div>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ochre"></span>
+                    <div class="w-16 h-px bg-olive-soft/40"></div>
+                </div>
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <a href="javascript:void(0)" onclick="navigateTo('main', 'booking')" class="px-8 py-3.5 bg-olive-dark hover:bg-olive-muted text-sand-50 text-xs uppercase tracking-widest font-medium rounded-full transition-all shadow-md">
+                        Записаться на консультацию
+                    </a>
+                    <a href="javascript:void(0)" onclick="navigateTo('main')" class="px-7 py-3.5 border border-olive-dark/20 text-olive-dark hover:bg-olive-dark/10 text-xs uppercase tracking-widest font-medium rounded-full transition-all">
+                        ← Вернуться на главную
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CONTACT MODAL -->
+    <div id="contact-modal" class="fixed inset-0 bg-charcoal/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-sand-50 p-6 sm:p-8 max-w-md w-full border border-olive-soft/30 rounded-3xl shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-muted hover:text-charcoal p-1 focus:outline-none" aria-label="Закрыть">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <h3 class="font-serif text-2xl font-light text-olive-deep mb-1 tracking-wide">Написать Алине</h3>
+            <p class="text-muted text-[11px] uppercase tracking-wider mb-5">Задайте вопрос или опишите запрос.</p>
+
+            <form id="modal-form" onsubmit="handleFormSubmit(event)" class="space-y-3.5">
+                <div>
+                    <label class="block text-[10px] font-semibold uppercase tracking-wider text-olive-deep mb-1">Ваше имя</label>
+                    <input type="text" required placeholder="Анна" class="w-full px-3.5 py-2.5 bg-sand-100 border border-olive-soft/20 rounded-xl focus:outline-none focus:border-ochre text-charcoal text-sm">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-semibold uppercase tracking-wider text-olive-deep mb-1">Контакт (Telegram или WhatsApp)</label>
+                    <input type="text" required placeholder="@username или +7..." class="w-full px-3.5 py-2.5 bg-sand-100 border border-olive-soft/20 rounded-xl focus:outline-none focus:border-ochre text-charcoal text-sm">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-semibold uppercase tracking-wider text-olive-deep mb-1">Ваш запрос или вопрос</label>
+                    <textarea rows="3" placeholder="Опишите в свободной форме..." class="w-full px-3.5 py-2.5 bg-sand-100 border border-olive-soft/20 rounded-xl focus:outline-none focus:border-ochre text-charcoal text-sm"></textarea>
+                </div>
+
+                <div id="modal-status" class="hidden text-xs uppercase tracking-wider text-olive-dark font-medium text-center py-2 bg-sand-200/80 border border-olive-light/20 rounded-xl">
+                    Спасибо! Сообщение отправлено.
+                </div>
+
+                <button type="submit" class="w-full py-3 bg-[#546555] hover:bg-olive-dark text-sand-50 text-xs uppercase tracking-wider font-medium transition-all rounded-full shadow-xs">
+                    Отправить
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        lucide.createIcons();
+        
+        // Dynamic year
+        document.querySelectorAll('.year-copy').forEach(el => {
+            el.textContent = new Date().getFullYear();
+        });
+
+        // VIEW ROUTING NAVIGATION
+        function navigateTo(targetView, targetSectionId) {
+            const viewMain = document.getElementById('view-main');
+            const viewPath = document.getElementById('view-path');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+
+            if (targetView === 'path') {
+                viewMain.classList.add('hidden');
+                viewPath.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.location.hash = 'about';
+            } else {
+                viewPath.classList.add('hidden');
+                viewMain.classList.remove('hidden');
+
+                if (targetSectionId) {
+                    setTimeout(() => {
+                        const targetEl = document.getElementById(targetSectionId);
+                        if (targetEl) {
+                            targetEl.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }, 50);
+                    window.location.hash = targetSectionId;
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    history.pushState(null, null, ' ');
+                }
+            }
+        }
+
+        // Reviews Carousel Logic
+        const slides = document.querySelectorAll('.review-slide');
+        const dots = document.querySelectorAll('.dot-btn');
+        const prevBtn = document.getElementById('prev-review');
+        const nextBtn = document.getElementById('next-review');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('hidden');
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.add('hidden');
+                    slide.classList.remove('active');
+                }
+            });
+
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-sand-300');
+                    dot.classList.add('bg-ochre');
+                } else {
+                    dot.classList.remove('bg-ochre');
+                    dot.classList.add('bg-sand-300');
+                }
+            });
+
+            currentSlide = index;
+        }
+
+        if (nextBtn && prevBtn) {
+            nextBtn.addEventListener('click', () => {
+                let nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(prevIndex);
+            });
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    showSlide(index);
+                });
+            });
+
+            setInterval(() => {
+                let nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            }, 7000);
+        }
+
+        // Modals & Education info toggles
+        function openModal() {
+            document.getElementById('contact-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('contact-modal').classList.add('hidden');
+            document.getElementById('modal-status').classList.add('hidden');
+        }
+
+        function toggleEduInfo(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.toggle('hidden');
+            }
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const status = document.getElementById('modal-status');
+            status.classList.remove('hidden');
+            setTimeout(() => {
+                closeModal();
+                event.target.reset();
+            }, 2000);
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-3', 'sm:py-4');
+            } else {
+                header.classList.add('py-3', 'sm:py-4');
+                header.classList.remove('py-2');
+            }
+        });
+
+        // Initialize view based on URL Hash
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#path' || window.location.hash === '#about-path') {
+                navigateTo('path');
+            }
+        });
+    </script>
+</body>
+</html>

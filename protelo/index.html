@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <!-- Идеальные мета-настройки для предотвращения нежелательного зума на iOS и стабильного отображения -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <title>PRO ТЕЛО — Трёхдневный интенсив</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts для премиальной типографики: Cormorant Garamond & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'xs': '375px',
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                    'xl': '1280px',
+                },
+                extend: {
+                    colors: {
+                        somaBg: '#ECE7E1',      /* Мягкий винтажный песочный фон */
+                        somaBgDarker: '#DFD8CE',/* Глубокий оттенок теплой бумаги */
+                        somaSage: '#5B6953',    /* Эстетичный приглушенный шалфейный */
+                        somaSageLight: '#9AA78F',/* Нежная размытая зелень */
+                        somaDark: '#1E1D1B',    /* Мягкий графитовый для текста */
+                        somaAccent: '#CDCEBF',  /* Легкий оливково-серый для рамок */
+                        somaEmerald: '#1D3222',  /* Смягченный роскошный хвойно-изумрудный */
+                        somaEmeraldLight: '#2C4733', /* Деликатный бархатный изумрудный */
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Анимация дрейфа мягкого света */
+        @keyframes drift {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(25px, -35px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        
+        /* Медленная пульсация созвездий */
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
+            50% { opacity: 0.9; transform: scale(1.1) rotate(90deg); }
+        }
+
+        .animate-drift-1 {
+            animation: drift 22s infinite alternate ease-in-out;
+        }
+        .animate-drift-2 {
+            animation: drift 26s infinite alternate-reverse ease-in-out;
+        }
+        .animate-sparkle-slow {
+            animation: sparkle 4s infinite ease-in-out;
+        }
+        .animate-sparkle-fast {
+            animation: sparkle 2.5s infinite ease-in-out;
+        }
+
+        /* Тонкие, изящные разделители в редакционном стиле */
+        .editorial-border {
+            border-color: rgba(91, 105, 83, 0.15);
+        }
+
+        /* Интерактивные кликабельные искры */
+        .click-spark {
+            position: absolute;
+            pointer-events: none;
+            color: #5B6953;
+            font-size: 1.5rem;
+            line-height: 1;
+            z-index: 9999;
+            transform: translate(-50%, -50%) scale(0);
+            animation: sparkFly 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes sparkFly {
+            0% {
+                transform: translate(-50%, -50%) scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -120px) scale(1.3) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        /* Плавное появление разделов при прокрутке */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-somaBg text-somaDark font-sans selection:bg-somaSageLight/30 selection:text-somaDark overflow-x-hidden antialiased relative">
+
+    <!-- Микрозернистая текстура бумаги поверх всего сайта -->
+    <div class="fixed inset-0 pointer-events-none z-50 opacity-[0.06] bg-repeat" 
+         style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
+
+    <!-- Размытые мягкие световые диски на заднем плане (адаптированные размеры под мобильные) -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-75">
+        <div class="absolute -top-[10%] -left-[10%] w-[100vw] h-[100vw] sm:w-[70vw] sm:h-[70vw] rounded-full bg-[#E8DCCB] opacity-70 blur-[60px] sm:blur-[130px] animate-drift-1"></div>
+        <div class="absolute top-[25%] -right-[20%] w-[90vw] h-[90vw] sm:w-[60vw] sm:h-[60vw] rounded-full bg-[#E5A93B] opacity-[0.09] blur-[70px] sm:blur-[150px] animate-drift-2"></div>
+        <div class="absolute -bottom-[10%] left-[15%] w-[100vw] h-[100vw] sm:w-[65vw] sm:h-[65vw] rounded-full bg-somaSageLight opacity-[0.08] blur-[60px] sm:blur-[140px] animate-drift-1"></div>
+    </div>
+
+    <!-- Тонкие изящные соединительные линии, петляющие по контенту (без вызова горизонтального скролла) -->
+    <div class="absolute inset-0 pointer-events-none z-10 overflow-hidden opacity-30 sm:opacity-50">
+        <svg class="w-full h-full min-h-[5000px] sm:min-h-[4800px]" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none">
+            <!-- Длинный извилистый путь нити, огибающий и пересекающий контентные блоки -->
+            <path id="scrollPath1" d="M 50,-50 C 300,200 -100,600 150,900 C 450,1200 80,1600 350,1900 C 650,2200 200,2600 80,3100 C -30,3400 300,3800 150,4200" 
+                  stroke="#5B6953" stroke-width="1.2" stroke-linecap="round" />
+            
+            <!-- Дополнительная тонкая нить для создания многослойной пленочной глубины -->
+            <path d="M 300,300 C 250,700 280,1100 100,1400 C -100,1700 350,2200 150,2700 C -50,3200 280,3400 220,4000" 
+                  stroke="#5B6953" stroke-width="0.8" stroke-dasharray="2 5" stroke-linecap="round" />
+        </svg>
+    </div>
+
+    <!-- Содержимое сайта -->
+    <div class="relative z-20 flex flex-col min-h-screen">
+
+        <!-- Первый экран (Герой-секция) -->
+        <section class="py-10 sm:py-16 md:py-24 border-b editorial-border flex items-center justify-center bg-transparent relative z-20 overflow-hidden">
+            <!-- Мерцающие микро-звездочки на первом экране -->
+            <div class="absolute top-[10%] left-[8%] text-somaSage/30 animate-sparkle-slow pointer-events-none">✦</div>
+            <div class="absolute top-[40%] right-[12%] text-amber-700/20 animate-sparkle-fast pointer-events-none">✦</div>
+            <div class="absolute bottom-[15%] left-[18%] text-somaSage/20 animate-sparkle-fast pointer-events-none">✦</div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6 sm:space-y-8 w-full relative z-10">
+
+                <div class="space-y-3 sm:space-y-4">
+                    <!-- Заголовок: PRO ТЕЛО (строго без курсива) -->
+                    <h1 class="font-serif text-4xl xs:text-5xl sm:text-7xl md:text-8xl font-light leading-tight text-somaDark max-w-3xl mx-auto uppercase tracking-wide">
+                        PRO <span class="relative inline-block px-1 text-somaSage animate-pulse">✦</span> ТЕЛО
+                    </h1>
+                    <!-- Подзаголовок (строго без курсива) -->
+                    <p class="text-[10px] sm:text-xs md:text-sm text-somaSage font-semibold uppercase tracking-wider px-2">
+                        3х-дневный интенсив: связь психики, эмоций и тела
+                    </p>
+                </div>
+
+                <!-- Главная фотография автора интенсива с деликатным эффектом интерактивного смещения (Parallax) -->
+                <div id="author-card-container" class="w-full max-w-[280px] xs:max-w-xs sm:max-w-sm md:max-w-md mx-auto my-6 sm:my-8 relative px-2 transition-transform duration-500 ease-out">
+                    <div id="author-card-bg" class="absolute inset-0 border editorial-border translate-x-4 translate-y-4 pointer-events-none transition-transform duration-500 ease-out"></div>
+                    <div id="author-card-main" class="rounded-none overflow-hidden border editorial-border shadow-lg bg-somaBgDarker/40 p-1.5 sm:p-2 relative z-10 transition-transform duration-500 ease-out">
+                        <img src="assets/soma-portrait.jpg" 
+                             alt="Алина Гвасалия" 
+                             class="w-full h-auto object-cover rounded-none filter contrast-[0.95] saturate-[0.9]"
+                             onerror="this.src='https://placehold.co/600x800/DFD8CE/5B6953?text=Alina+Gvasalia'">
+                    </div>
+                    <!-- Изящная подпись автора (без курсива) -->
+                    <div class="mt-3 sm:mt-4">
+                        <p class="text-[9px] sm:text-[11px] uppercase text-somaSage font-medium tracking-wider">
+                            автор интенсива — алина гвасалия
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Продублированная кнопка записи в начале страницы -->
+                <div class="pt-2">
+                    <a href="https://forms.yandex.ru/u/6a54d5639029020b34646ba4" target="_blank" class="inline-block w-full xs:w-auto bg-somaSage hover:bg-somaSage/90 text-[#F4F0EA] font-sans text-xs sm:text-sm uppercase tracking-wider font-semibold px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-center">
+                        Записаться на интенсив
+                    </a>
+                </div>
+
+                <div class="w-12 sm:w-16 h-[1px] bg-somaSage/20 mx-auto"></div>
+
+                <!-- Высококонтрастная плашка-цитата (Редизайн на основе telegram-cloud-photo-size-2-5384476443619825702-y.jpg) -->
+                <div class="max-w-3xl mx-auto bg-somaBgDarker p-6 xs:p-8 sm:p-12 md:p-14 rounded-[32px] border editorial-border shadow-sm text-left space-y-6 sm:space-y-8 relative overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-32 h-32 bg-somaSage/5 rounded-full blur-xl pointer-events-none"></div>
+                    
+                    <div class="space-y-3 relative z-10">
+                        <span class="text-[9px] sm:text-[10px] tracking-widest uppercase text-somaSage font-bold block">Смысл метода</span>
+                        <h2 class="font-serif text-xl xs:text-2xl sm:text-3xl text-somaDark font-light leading-tight">
+                            Симптом — это <span class="font-semibold text-somaSage underline decoration-somaSage/20 underline-offset-4">язык</span>, на котором с вами говорит тело.
+                        </h2>
+                        <p class="text-xs sm:text-sm text-somaDark/60 leading-relaxed max-w-xl">
+                            И это далеко не только физические болезни. Психика подает тревожные сигналы через конкретные жизненные состояния, которые вы можете обнаружить у себя:
+                        </p>
+                    </div>
+
+                    <!-- Сетка признаков для быстрого сканирования (High-Conversion Grid) с деликатной микро-интерактивностью при ховере -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 py-2 relative z-10">
+                        <div class="flex items-start gap-3 p-3.5 bg-[#FAF9F6]/40 rounded-2xl border border-somaDark/5 hover:border-somaSage/30 hover:bg-[#FAF9F6]/80 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <span class="text-somaSage font-serif text-base mt-0.5 animate-pulse">✦</span>
+                            <p class="text-xs sm:text-sm text-somaDark/90 font-medium">Постоянная фоновая тревога</p>
+                        </div>
+                        <div class="flex items-start gap-3 p-3.5 bg-[#FAF9F6]/40 rounded-2xl border border-somaDark/5 hover:border-somaSage/30 hover:bg-[#FAF9F6]/80 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <span class="text-somaSage font-serif text-base mt-0.5 animate-pulse">✦</span>
+                            <p class="text-xs sm:text-sm text-somaDark/90 font-medium">Хроническое напряжение в теле</p>
+                        </div>
+                        <div class="flex items-start gap-3 p-3.5 bg-[#FAF9F6]/40 rounded-2xl border border-somaDark/5 hover:border-somaSage/30 hover:bg-[#FAF9F6]/80 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <span class="text-somaSage font-serif text-base mt-0.5 animate-pulse">✦</span>
+                            <p class="text-xs sm:text-sm text-somaDark/90 font-medium">Сложности в отношениях</p>
+                        </div>
+                        <div class="flex items-start gap-3 p-3.5 bg-[#FAF9F6]/40 rounded-2xl border border-somaDark/5 hover:border-somaSage/30 hover:bg-[#FAF9F6]/80 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <span class="text-somaSage font-serif text-base mt-0.5 animate-pulse">✦</span>
+                            <p class="text-xs sm:text-sm text-somaDark/90 font-medium">Чувство «живу не свою жизнь»</p>
+                        </div>
+                        <div class="flex items-start gap-3 p-3.5 bg-[#FAF9F6]/40 rounded-2xl border border-somaDark/5 hover:border-somaSage/30 hover:bg-[#FAF9F6]/80 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <span class="text-somaSage font-serif text-base mt-0.5 animate-pulse">✦</span>
+                            <p class="text-xs sm:text-sm text-somaDark/90 font-medium">Чувство вины и низкая самооценка</p>
+                        </div>
+                        <div class="flex items-start gap-3 p-3.5 bg-[#FAF9F6]/40 rounded-2xl border border-somaDark/5 hover:border-somaSage/30 hover:bg-[#FAF9F6]/80 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <span class="text-somaSage font-serif text-base mt-0.5 animate-pulse">✦</span>
+                            <p class="text-xs sm:text-sm text-somaDark/90 font-medium">Невозможность сделать важный шаг</p>
+                        </div>
+                    </div>
+
+                    <!-- Вывод -->
+                    <div class="pt-5 border-t border-somaSage/15 space-y-2 relative z-10">
+                        <p class="text-xs sm:text-sm md:text-base text-somaSage font-bold uppercase tracking-wider leading-relaxed">
+                            Всё это — разные формы одной системы адаптации.
+                        </p>
+                        <p class="text-[11px] sm:text-xs md:text-sm text-somaDark/80 leading-relaxed font-light">
+                            И на этом интенсиве мы будем учиться деликатно <strong class="font-semibold text-somaDark">понимать этот язык</strong>, вместо того чтобы бесконечно бороться с собственным телом и симптомами.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел о практике автора (с анимацией scroll-reveal) -->
+        <section class="py-12 sm:py-20 md:py-24 border-b editorial-border bg-[#F0ECE6] relative z-20 overflow-hidden scroll-reveal">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+                    
+                    <!-- Обновленное изображение слева с адаптивной версткой -->
+                    <div class="md:col-span-4 max-w-[280px] xs:max-w-xs mx-auto md:max-w-full border border-somaDark/20 p-1.5 xs:p-2 bg-[#F0ECE6] shadow-sm relative group w-full">
+                        <div class="border border-somaDark/10 overflow-hidden aspect-[3/4]">
+                            <img src="assets/soma-practice.jpg" 
+                                 alt="Soma Practice" 
+                                 class="w-full h-full object-cover filter contrast-[0.95] saturate-[0.85] transition-transform duration-700 group-hover:scale-105"
+                                 onerror="this.src='https://placehold.co/600x800/DFD8CE/5B6953?text=Practice'">
+                        </div>
+                    </div>
+
+                    <!-- Текст справа -->
+                    <div class="md:col-span-8 space-y-5 sm:space-y-6 text-left">
+                        <div class="space-y-4">
+                            <p class="text-xs sm:text-sm md:text-base text-somaDark leading-relaxed font-normal">
+                                В этом интенсиве я объединила всё, что сегодня составляет основу моей практики:
+                            </p>
+                            <!-- Структурированные маркированные списки с графическим маркером-ромбом -->
+                            <ul class="space-y-2.5 pl-1">
+                                <li class="text-xs sm:text-sm md:text-base text-somaDark/90 font-light flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 bg-somaSage rotate-45 transform shrink-0 mt-1.5 sm:mt-2"></span>
+                                    <span>Современная научная психосоматика.</span>
+                                </li>
+                                <li class="text-xs sm:text-sm md:text-base text-somaDark/90 font-light flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 bg-somaSage rotate-45 transform shrink-0 mt-1.5 sm:mt-2"></span>
+                                    <span>Телесно-ориентированная терапия.</span>
+                                </li>
+                                <li class="text-xs sm:text-sm md:text-base text-somaDark/90 font-light flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 bg-somaSage rotate-45 transform shrink-0 mt-1.5 sm:mt-2"></span>
+                                    <span>Эмоционально-образная терапия.</span>
+                                </li>
+                                <li class="text-xs sm:text-sm md:text-base text-somaDark/90 font-light flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 bg-somaSage rotate-45 transform shrink-0 mt-1.5 sm:mt-2"></span>
+                                    <span>Дыхательные психотехники.</span>
+                                </li>
+                                <li class="text-xs sm:text-sm md:text-base text-somaDark/90 font-light flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 bg-somaSage rotate-45 transform shrink-0 mt-1.5 sm:mt-2"></span>
+                                    <span>Практический опыт работы с людьми.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел программы (Теория и Практика) (с анимацией scroll-reveal) -->
+        <section class="py-12 sm:py-20 md:py-24 border-b editorial-border bg-somaBg relative z-20 scroll-reveal">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-16">
+                    <h2 class="font-serif text-2xl sm:text-3xl md:text-5xl font-light text-somaDark uppercase tracking-wide">Что вас ждёт?</h2>
+                    <p class="text-[9px] sm:text-[10px] uppercase text-somaSage font-semibold tracking-wider">Каждый день состоит из двух частей</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12">
+                    <!-- Блок Теории -->
+                    <div class="bg-somaBgDarker/60 p-5 xs:p-6 sm:p-10 rounded-none border border-somaSage/10 space-y-5 sm:space-y-8 flex flex-col justify-between text-left">
+                        <div>
+                            <div class="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-8">
+                                <span class="text-[10px] sm:text-xs text-somaSage tracking-wider uppercase font-medium">Теория</span>
+                                <div class="h-[1px] flex-1 bg-somaSage/20"></div>
+                            </div>
+                            <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-light text-somaDark mb-3 sm:mb-6 uppercase tracking-wide">Теория</h3>
+                            <p class="text-[9px] sm:text-[10px] text-somaSage uppercase tracking-wider mb-3 sm:mb-6 font-semibold">Мы будем говорить о:</p>
+                            <ul class="space-y-2.5 sm:space-y-4 text-xs sm:text-sm text-somaDark/90 font-light">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-somaSage/60 font-serif">—</span>
+                                    <span>психофизиологии стресса;</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-somaSage/60 font-serif">—</span>
+                                    <span>работе нервной системы;</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-somaSage/60 font-serif">—</span>
+                                    <span>современной научной психосоматике;</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-somaSage/60 font-serif">—</span>
+                                    <span>связи психики, эмоций и тела;</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-somaSage/60 font-serif">—</span>
+                                    <span>механизмах формирования симптомов;</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-somaSage/60 font-serif">—</span>
+                                    <span>повторяющихся жизненных сценариях.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="text-[11px] sm:text-xs text-somaDark/70 border-t editorial-border pt-4 sm:pt-6 mt-4 sm:mt-6 leading-relaxed">
+                            Без сложной терминологии — понятно, последовательно и с большим количеством примеров из практики.
+                        </p>
+                    </div>
+
+                    <!-- Блок Практики -->
+                    <div class="bg-somaBgDarker/60 p-5 xs:p-6 sm:p-10 rounded-none border border-somaSage/10 space-y-5 sm:space-y-8 flex flex-col justify-between text-left">
+                        <div>
+                            <div class="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-8">
+                                <span class="text-[10px] sm:text-xs text-somaSage tracking-wider uppercase font-medium">Практика</span>
+                                <div class="h-[1px] flex-1 bg-somaSage/20"></div>
+                            </div>
+                            <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-light text-somaDark mb-3 sm:mb-6 uppercase tracking-wide">Практика</h3>
+                            <p class="text-[9px] sm:text-[10px] text-somaSage uppercase tracking-wider mb-3 sm:mb-6 font-semibold">После каждой теоретической части мы сразу будем переходить к проживанию материала. Вас ждут:</p>
+                            <ul class="space-y-2.5 sm:space-y-4 text-xs sm:text-sm text-somaDark/90 font-light">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-somaSage/60 font-serif">—</span>
+                                    <span>телесные практики;</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-somaSage/60 font-serif">—</span>
+                                    <span>дыхательные техники;</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-somaSage/60 font-serif">—</span>
+                                    <span>упражнения на развитие телесной чувствительности;</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-somaSage/60 font-serif">—</span>
+                                    <span>исследование собственных историй;</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-somaSage/60 font-serif">—</span>
+                                    <span>работа с индивидуальными запросами участников.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="text-[11px] sm:text-xs text-somaDark/70 border-t editorial-border pt-4 sm:pt-6 mt-4 sm:mt-6 leading-relaxed">
+                            Для меня важно, чтобы знания не оставались только на уровне понимания. Поэтому каждая практика становится естественным продолжением теории и помогает постепенно переносить полученный опыт в повседневную жизнь.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел: Подробная программа по дням (с анимацией scroll-reveal) -->
+        <section class="py-12 sm:py-20 md:py-24 border-b editorial-border bg-[#F0ECE6] relative z-20 overflow-hidden scroll-reveal">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+                <div class="text-center space-y-3 sm:space-y-4 mb-10 sm:mb-14">
+                    <h2 class="font-serif text-2xl sm:text-3xl md:text-5xl font-light text-somaDark uppercase tracking-wide">Подробная программа</h2>
+                    <p class="text-[9px] sm:text-[10px] uppercase text-somaSage font-semibold tracking-wider">Нажмите на интересующий день для ознакомления</p>
+                </div>
+
+                <!-- Кнопки выбора дня -->
+                <div class="flex flex-row justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 max-w-lg mx-auto overflow-x-auto pb-2 scrollbar-none">
+                    <button onclick="changeDay(1)" class="day-btn shrink-0 bg-somaSage text-[#F4F0EA] font-sans text-xs sm:text-sm uppercase tracking-wider font-semibold px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-300 shadow-md">
+                        День 1
+                    </button>
+                    <button onclick="changeDay(2)" class="day-btn shrink-0 bg-somaBgDarker/40 text-somaDark font-sans text-xs sm:text-sm uppercase tracking-wider font-semibold px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-300 hover:bg-somaBgDarker/60">
+                        День 2
+                    </button>
+                    <button onclick="changeDay(3)" class="day-btn shrink-0 bg-somaBgDarker/40 text-somaDark font-sans text-xs sm:text-sm uppercase tracking-wider font-semibold px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-300 hover:bg-somaBgDarker/60">
+                        День 3
+                    </button>
+                </div>
+
+                <!-- Контейнер карточек программы -->
+                <div class="max-w-3xl mx-auto relative min-h-[300px]">
+                    
+                    <!-- День 1 -->
+                    <div id="day-1" class="day-content transition-all duration-500 ease-in-out opacity-100 space-y-6 text-left relative bg-somaBg/95 border editorial-border p-6 sm:p-12 shadow-sm rounded-none">
+                        <div class="absolute right-6 top-4 font-serif text-7xl sm:text-9xl text-somaSage/5 font-bold select-none pointer-events-none">01</div>
+                        <span class="text-[9px] sm:text-[10px] text-somaSage uppercase tracking-widest font-bold">ДЕНЬ ПЕРВЫЙ</span>
+                        <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-light text-somaDark uppercase tracking-wide border-b editorial-border pb-4">
+                            Понимаю, как устроена моя реакция
+                        </h3>
+                        <p class="text-xs sm:text-base text-somaDark/90 font-light leading-relaxed">
+                            В этот день мы разберёмся, как формируется наша психика и почему каждый человек по-разному реагирует на одни и те же события.
+                        </p>
+                        
+                        <div class="space-y-3 pt-2">
+                            <h4 class="text-[9px] sm:text-[10px] text-somaSage uppercase tracking-wider font-semibold">Вы узнаете:</h4>
+                            <ul class="space-y-3 text-xs sm:text-sm font-light text-somaDark/90">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-somaSage/60 font-serif mt-0.5">—</span>
+                                    <span>как формируется личность и привычные стратегии поведения;</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-somaSage/60 font-serif mt-0.5">—</span>
+                                    <span>что происходит с нервной системой в ситуации стресса;</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-somaSage/60 font-serif mt-0.5">—</span>
+                                    <span>почему тело часто реагирует быстрее, чем мы успеваем что-то осознать;</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-somaSage/60 font-serif mt-0.5">—</span>
+                                    <span>как возникают автоматические реакции, которые кажутся «неподконтрольными».</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border-t editorial-border pt-4 mt-6">
+                            <p class="text-[11px] sm:text-xs text-somaSage/80 font-medium tracking-wide uppercase leading-relaxed">
+                                К концу дня вы начнёте видеть не только свои реакции, но и понимать, откуда они берутся.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- День 2 -->
+                    <div id="day-2" class="day-content hidden transition-all duration-500 ease-in-out opacity-0 space-y-6 text-left relative bg-somaBg/95 border editorial-border p-6 sm:p-12 shadow-sm rounded-none">
+                        <div class="absolute right-6 top-4 font-serif text-7xl sm:text-9xl text-somaSage/5 font-bold select-none pointer-events-none">02</div>
+                        <span class="text-[9px] sm:text-[10px] text-somaSage uppercase tracking-widest font-bold">ДЕНЬ ВТОРОЙ</span>
+                        <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-light text-somaDark uppercase tracking-wide border-b editorial-border pb-4">
+                            Понимаю, что чувствую
+                        </h3>
+                        <p class="text-xs sm:text-base text-somaDark/90 font-light leading-relaxed">
+                            Этот день полностью посвящён эмоциям и чувствам.
+                        </p>
+                        
+                        <div class="space-y-3 pt-2">
+                            <h4 class="text-[9px] sm:text-[10px] text-somaSage uppercase tracking-wider font-semibold">Мы будем учиться:</h4>
+                            <ul class="space-y-3 text-xs sm:text-sm font-light text-somaDark/90">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-somaSage/60 font-serif mt-0.5">—</span>
+                                    <span>различать эмоции и чувства и понимать, в чём между ними разница;</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-somaSage/60 font-serif mt-0.5">—</span>
+                                    <span>замечать свои эмоциональные состояния до того, как они становятся слишком сильными;</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-somaSage/60 font-serif mt-0.5">—</span>
+                                    <span>распознавать, как разные чувства проявляются в теле;</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-somaSage/60 font-serif mt-0.5">—</span>
+                                    <span>выдерживать свои переживания, а не автоматически избегать их.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border-t editorial-border pt-4 mt-6">
+                            <p class="text-[11px] sm:text-xs text-somaSage/80 font-medium tracking-wide uppercase leading-relaxed">
+                                Главная задача этого дня — восстановить контакт с собой и своим внутренним опытом.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- День 3 -->
+                    <div id="day-3" class="day-content hidden transition-all duration-500 ease-in-out opacity-0 space-y-6 text-left relative bg-somaBg/95 border editorial-border p-6 sm:p-12 shadow-sm rounded-none">
+                        <div class="absolute right-6 top-4 font-serif text-7xl sm:text-9xl text-somaSage/5 font-bold select-none pointer-events-none">03</div>
+                        <span class="text-[9px] sm:text-[10px] text-somaSage uppercase tracking-widest font-bold">ДЕНЬ ТРЕТИЙ</span>
+                        <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-light text-somaDark uppercase tracking-wide border-b editorial-border pb-4">
+                            Понимаю, какую задачу решает мой симптом
+                        </h3>
+                        <p class="text-xs sm:text-base text-somaDark/90 font-light leading-relaxed">
+                            На третий день мы посмотрим на симптомы как на язык, которым тело пытается с нами говорить.
+                        </p>
+                        
+                        <div class="space-y-3 pt-2">
+                            <h4 class="text-[9px] sm:text-[10px] text-somaSage uppercase tracking-wider font-semibold">Мы будем исследовать:</h4>
+                            <ul class="space-y-3 text-xs sm:text-sm font-light text-somaDark/90">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-somaSage/60 font-serif mt-0.5">—</span>
+                                    <span>почему возникают психосоматические симптомы;</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-somaSage/60 font-serif mt-0.5">—</span>
+                                    <span>как тело помогает нам справляться с тем, с чем психике пока трудно справиться напрямую;</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-somaSage/60 font-serif mt-0.5">—</span>
+                                    <span>как увидеть за симптомом его функцию, а не только желание от него избавиться;</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-somaSage/60 font-serif mt-0.5">—</span>
+                                    <span>как тревога, болезни, хроническое напряжение и повторяющиеся реакции могут быть частью одной системы адаптации.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border-t editorial-border pt-4 mt-6">
+                            <p class="text-[11px] sm:text-xs text-somaSage/80 font-medium tracking-wide uppercase leading-relaxed">
+                                Вместо борьбы с симптомом мы попробуем понять, что именно он пытается сохранить или защитить.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел целевой аудитории (с анимацией scroll-reveal) -->
+        <section class="py-12 sm:py-20 md:py-24 border-b editorial-border bg-somaBgDarker/50 relative z-20 overflow-hidden scroll-reveal">
+            <!-- Абстрактный мягкий фоновый цветок -->
+            <div class="absolute -right-16 -bottom-16 w-48 h-48 sm:w-80 sm:h-80 opacity-25 filter blur-[1px] pointer-events-none scale-110 sm:scale-125">
+                <svg viewBox="0 0 100 100" fill="currentColor" class="text-somaSageLight">
+                    <path d="M50,50 C60,20 80,30 90,50 C80,70 60,80 50,50 C40,80 20,70 10,50 C20,30 40,20 50,50 Z" />
+                </svg>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+                <div class="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-16">
+                    <h2 class="font-serif text-2xl sm:text-3xl md:text-5xl font-light text-somaDark uppercase tracking-wide">Для кого этот интенсив?</h2>
+                    <p class="text-[9px] sm:text-[10px] uppercase text-somaSage font-semibold tracking-wider">Он подойдёт вам, если вы:</p>
+                </div>
+
+                <div class="max-w-2xl mx-auto bg-somaBg/95 backdrop-blur-md p-5 xs:p-6 sm:p-10 md:p-14 rounded-none border editorial-border shadow-sm text-left">
+                    <ul class="space-y-3.5 sm:space-y-6 text-xs sm:text-sm md:text-base text-somaDark/95 font-light leading-relaxed">
+                        <li class="flex items-center gap-3 sm:gap-4">
+                            <span class="text-somaSage text-xs font-light shrink-0">•</span>
+                            <span>постоянно живёте в напряжении;</span>
+                        </li>
+                        <div class="h-[1px] bg-somaSage/10"></div>
+                        <li class="flex items-center gap-3 sm:gap-4">
+                            <span class="text-somaSage text-xs font-light shrink-0">•</span>
+                            <span>не умеете расслабляться;</span>
+                        </li>
+                        <div class="h-[1px] bg-somaSage/10"></div>
+                        <li class="flex items-center gap-3 sm:gap-4">
+                            <span class="text-somaSage text-xs font-light shrink-0">•</span>
+                            <span>замечаете повторяющиеся психосоматические симптомы;</span>
+                        </li>
+                        <div class="h-[1px] bg-somaSage/10"></div>
+                        <li class="flex items-center gap-3 sm:gap-4">
+                            <span class="text-somaSage text-xs font-light shrink-0">•</span>
+                            <span>хотите лучше понимать свои чувства и реакции;</span>
+                        </li>
+                        <div class="h-[1px] bg-somaSage/10"></div>
+                        <li class="flex items-center gap-3 sm:gap-4">
+                            <span class="text-somaSage text-xs font-light shrink-0">•</span>
+                            <span>чувствуете, что потеряли контакт с собой;</span>
+                        </li>
+                        <div class="h-[1px] bg-somaSage/10"></div>
+                        <li class="flex items-center gap-3 sm:gap-4">
+                            <span class="text-somaSage text-xs font-light shrink-0">•</span>
+                            <span>хотите научиться слышать сигналы своего тела раньше.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Финальный блок-приглашение (Манифест Траектории) (с анимацией scroll-reveal) -->
+        <section class="py-16 sm:py-24 md:py-28 bg-somaBg relative z-20 scroll-reveal">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                
+                <!-- Главная обертка манифеста в мягком изумрудном цвете -->
+                <div class="bg-somaEmerald text-[#F4F0EA] rounded-[32px] sm:rounded-[48px] p-6 xs:p-8 sm:p-12 md:p-16 border border-somaEmeraldLight/40 shadow-2xl shadow-somaDark/20 text-center space-y-8 sm:space-y-12 relative overflow-hidden">
+                    
+                    <!-- Декоративный полупрозрачный фоновый паттерн -->
+                    <div class="absolute -right-10 -top-10 w-40 h-40 opacity-10 pointer-events-none">
+                        <svg viewBox="0 0 100 100" fill="currentColor" class="text-somaBg">
+                            <path d="M50,50 C60,20 80,30 90,50 C80,70 60,80 50,50 C40,80 20,70 10,50 C20,30 40,20 50,50 Z" />
+                        </svg>
+                    </div>
+
+                    <!-- Верхняя часть: Концепт и Заголовок -->
+                    <div class="space-y-3 sm:space-y-4 max-w-3xl mx-auto">
+                        <span class="text-[9px] sm:text-[10px] text-somaSageLight uppercase tracking-widest font-semibold block">
+                            ВАШ ШАГ К ЧУВСТВИТЕЛЬНОСТИ
+                        </span>
+                        <h2 class="font-serif text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-light leading-tight text-[#F4F0EA] uppercase tracking-wide">
+                            PRO ТЕЛО — это приглашение заново познакомиться с собой
+                        </h2>
+                        <div class="w-12 h-[1px] bg-somaSageLight/30 mx-auto mt-4"></div>
+                    </div>
+
+                    <!-- Сетчатая структура трансформирования в виде молочных карточек внутри большой изумрудной -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 pt-4 text-left py-4 sm:py-6">
+                        
+                        <!-- Пункт 1: Смена фокуса -->
+                        <div class="bg-[#FAF6F0] text-somaDark p-5 xs:p-6 sm:p-8 rounded-[24px] border border-somaAccent/30 shadow-md flex flex-col justify-between space-y-5">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4 border-b border-somaSage/15 pb-3">
+                                    <span class="font-serif text-xl sm:text-2xl text-somaSage font-light">01</span>
+                                    <span class="text-[10px] sm:text-xs uppercase tracking-wider text-somaSage font-semibold">Смена фокуса</span>
+                                </div>
+                                <p class="text-xs sm:text-sm text-somaDark/90 font-light leading-relaxed mb-4">
+                                    <span class="text-somaSage/60 uppercase text-[9px] font-bold tracking-wider block mb-1">Было:</span>
+                                    Восприятие тела исключительно как источника симптомов, боли, тревоги и вечного фонового напряжения.
+                                </p>
+                            </div>
+                            <div class="bg-somaBgDarker/35 p-4 rounded-xl border-l-4 border-somaSage">
+                                <p class="text-xs sm:text-sm text-somaDark font-normal leading-relaxed">
+                                    <span class="text-somaSage uppercase text-[9px] font-bold tracking-wider block mb-1">Станет:</span>
+                                    Умение распознавать язык ощущений и сигналы нервной системы раньше, чем они перерастут в симптомы.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Пункт 2: Обретение опор -->
+                        <div class="bg-[#FAF6F0] text-somaDark p-5 xs:p-6 sm:p-8 rounded-[24px] border border-somaAccent/30 shadow-md flex flex-col justify-between space-y-5">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4 border-b border-somaSage/15 pb-3">
+                                    <span class="font-serif text-xl sm:text-2xl text-somaSage font-light">02</span>
+                                    <span class="text-[10px] sm:text-xs uppercase tracking-wider text-somaSage font-semibold">Обретение опор</span>
+                                </div>
+                                <p class="text-xs sm:text-sm text-somaDark/90 font-light leading-relaxed mb-4">
+                                    <span class="text-somaSage/60 uppercase text-[9px] font-bold tracking-wider block mb-1">Было:</span>
+                                    Привычка бесконечно «жать на газ», истощая внутренний ресурс и не умея расслабиться в конце дня.
+                                </p>
+                            </div>
+                            <div class="bg-somaBgDarker/35 p-4 rounded-xl border-l-4 border-somaSage">
+                                <p class="text-xs sm:text-sm text-somaDark font-normal leading-relaxed">
+                                    <span class="text-somaSage uppercase text-[9px] font-bold tracking-wider block mb-1">Станет:</span>
+                                    Возвращение в безопасный контакт с реальностью через конкретные дыхательные и телесные психотехники.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Пункт 3: Новое партнерство -->
+                        <div class="bg-[#FAF6F0] text-somaDark p-5 xs:p-6 sm:p-8 rounded-[24px] border border-somaAccent/30 shadow-md flex flex-col justify-between space-y-5">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4 border-b border-somaSage/15 pb-3">
+                                    <span class="font-serif text-xl sm:text-2xl text-somaSage font-light">03</span>
+                                    <span class="text-[10px] sm:text-xs uppercase tracking-wider text-somaSage font-semibold">Новое партнерство</span>
+                                </div>
+                                <p class="text-xs sm:text-sm text-somaDark/90 font-light leading-relaxed mb-4">
+                                    <span class="text-somaSage/60 uppercase text-[9px] font-bold tracking-wider block mb-1">Было:</span>
+                                    Постоянное подавление эмоций, борьба с телесными зажимами и поиск одной "волшебной таблетки".
+                                </p>
+                            </div>
+                            <div class="bg-somaBgDarker/35 p-4 rounded-xl border-l-4 border-somaSage">
+                                <p class="text-xs sm:text-sm text-somaDark font-normal leading-relaxed">
+                                    <span class="text-somaSage uppercase text-[9px] font-bold tracking-wider block mb-1">Станет:</span>
+                                    Глубокое понимание связи психики и тела, а также обретение сильного союзника, который всегда на вашей стороне.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Контрастная, призывающая к действию кнопка -->
+                    <div class="pt-4 sm:pt-6">
+                        <a href="https://forms.yandex.ru/u/6a54d5639029020b34646ba4" target="_blank" class="inline-block w-full xs:w-auto bg-somaBg hover:bg-[#F4F0EA] text-somaDark font-sans text-xs sm:text-sm uppercase tracking-wider font-semibold px-8 sm:px-12 py-4 sm:py-5 rounded-full transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 transform text-center">
+                            Занять место в группе
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Раздел формата участия (с анимацией scroll-reveal) -->
+        <section class="py-12 sm:py-20 md:py-24 border-b editorial-border bg-somaBg relative z-20 scroll-reveal">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
+                    <div class="md:col-span-7 space-y-4 sm:space-y-6 text-left">
+                        <div class="space-y-2">
+                            <p class="text-[9px] sm:text-[10px] uppercase text-somaSage font-semibold tracking-wider">
+                                Формат участия
+                            </p>
+                            <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-somaDark leading-tight uppercase tracking-wide">
+                                Почему группа будет камерной?
+                            </h2>
+                        </div>
+                        
+                        <div class="space-y-4 sm:space-y-6 text-xs sm:text-sm md:text-base text-somaDark/90 leading-relaxed font-light">
+                            <p>
+                                Мне важно сохранить небольшое количество участников.
+                            </p>
+                            
+                            <p>
+                                Так у нас появляется возможность не только пройти программу, но и уделить внимание каждому человеку.
+                            </p>
+                            
+                            <p>
+                                Если у вас есть симптом, состояние или вопрос, который давно беспокоит, мы сможем рассмотреть его через призму психофизиологии, стрессовых реакций и связи психики с телом, а также увидеть закономерности, которые могут стоять за происходящим.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Атмосферное художественное изображение справа (премиальный многослойный коллаж) -->
+                    <div class="md:col-span-5 max-w-[280px] xs:max-w-xs sm:max-w-sm md:max-w-full mx-auto w-full relative py-4 px-4">
+                        
+                        <!-- Декоративная смещенная фоновая подложка для объема -->
+                        <div class="absolute inset-0 border border-somaSage/15 translate-x-2.5 translate-y-2.5 rounded-[24px] pointer-events-none z-0"></div>
+                        
+                        <!-- Еще одна смещенная фоновая плашка для создания эффекта многослойной бумаги -->
+                        <div class="absolute inset-0 bg-somaBgDarker/60 -translate-x-2 -translate-y-2 rounded-[24px] pointer-events-none z-0"></div>
+
+                        <!-- Контейнер самой фотографии -->
+                        <div class="relative rounded-[24px] overflow-hidden border border-somaSage/25 shadow-2xl shadow-somaDark/10 z-10 aspect-[4/5] bg-somaBgDarker">
+                            
+                            <!-- Внутренний блик/световой эффект (мягкая засветка сверху-справа) -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-amber-100/5 to-white/20 mix-blend-screen pointer-events-none z-20"></div>
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-amber-200/10 blur-2xl rounded-full pointer-events-none z-20"></div>
+
+                            <!-- Градиентное затемнение снизу для лучшего вживления фото в макет -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-somaBg/25 to-transparent pointer-events-none z-20"></div>
+                            
+                            <!-- Изображение -->
+                            <img src="assets/soma-group.jpg" 
+                                 alt="Формат участия — Алина Гвасалия" 
+                                 class="w-full h-full object-cover opacity-95 filter brightness-[0.97] saturate-[0.9] transition-transform duration-700 hover:scale-[1.03]"
+                                 onerror="this.src='https://placehold.co/600x800/DFD8CE/5B6953?text=Soma+Group'">
+                        </div>
+
+                        <!-- Изящные винтажные искры (четырехконечные звезды) перекрывающие края фотографии -->
+                        <!-- Upper left star -->
+                        <div class="absolute top-1 left-1 z-20 text-somaSage/50 animate-pulse pointer-events-none" style="animation-duration: 4s;">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C12 7.52 7.52 12 2 12C7.52 12 12 16.48 12 22C12 16.48 16.48 12 22 12C16.48 12 12 7.52 12 2Z" />
+                            </svg>
+                        </div>
+                        <!-- Lower right star -->
+                        <div class="absolute -bottom-1 -right-1 z-20 text-amber-700/30 animate-pulse pointer-events-none" style="animation-duration: 3s;">
+                            <svg class="w-7 h-7 sm:w-9 sm:h-9" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C12 7.52 7.52 12 2 12C7.52 12 12 16.48 12 22C12 16.48 16.48 12 22 12C16.48 12 12 7.52 12 2Z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок Интерактивного сомато-дыхательного камертона (с переключателем режимов на 20% больше интерактива) -->
+        <section class="py-12 sm:py-20 border-b editorial-border bg-somaBgDarker/30 relative z-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-8">
+                <div class="space-y-2">
+                    <span class="text-[9px] sm:text-[10px] uppercase text-somaSage font-semibold tracking-wider">соматический со-настройщик</span>
+                    <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-somaDark uppercase tracking-wide">Дыхательный камертон</h2>
+                    <p class="text-xs text-somaDark/60 leading-relaxed max-w-md mx-auto">
+                        Попробуйте переключить режимы дыхания, чтобы настроить вегетативную нервную систему прямо сейчас.
+                    </p>
+                </div>
+
+                <!-- Селектор режимов дыхания -->
+                <div class="flex flex-wrap justify-center gap-2 max-w-sm mx-auto">
+                    <button onclick="setBreatheMode('balance', this)" class="breathe-mode-btn py-1.5 px-4 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 bg-somaSage text-[#F4F0EA] shadow-sm">
+                        Баланс
+                    </button>
+                    <button onclick="setBreatheMode('relax', this)" class="breathe-mode-btn py-1.5 px-4 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 bg-somaBgDarker/55 text-somaDark hover:bg-somaBgDarker">
+                        Покой
+                    </button>
+                    <button onclick="setBreatheMode('tone', this)" class="breathe-mode-btn py-1.5 px-4 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 bg-somaBgDarker/55 text-somaDark hover:bg-somaBgDarker">
+                        Тонус
+                    </button>
+                </div>
+
+                <!-- Пульсирующий Дыхательный Камертон -->
+                <div class="p-8 md:p-12 border border-somaSage/20 bg-somaBg/85 rounded-[32px] w-full max-w-md mx-auto relative overflow-hidden shadow-sm space-y-6">
+                    <div class="relative w-36 h-36 mx-auto flex items-center justify-center">
+                        <div id="breath-circle" class="absolute w-24 h-24 rounded-full border border-somaSage/40 bg-somaSage/10 transition-all duration-[4000ms] ease-in-out"></div>
+                        <div class="absolute w-2 h-2 bg-somaSage rounded-full"></div>
+                        <span id="breath-text" class="absolute bottom-[-20px] text-[10px] tracking-[0.25em] uppercase text-somaDark/50 font-semibold">Начало</span>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <p id="breath-mode-desc" class="text-xs text-somaDark/60 leading-relaxed max-w-xs mx-auto">
+                            Мягкая балансировка симпатической и парасимпатической систем.
+                        </p>
+                        <p id="breath-timer-helper" class="text-[9px] text-somaSage font-bold uppercase tracking-widest">
+                            Ритм: 4с вдох — 4с пауза — 4с выдох
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок Время и Место + Оплата -->
+        <section class="py-12 sm:py-20 md:py-24 border-b editorial-border bg-somaBgDarker/40 relative z-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div id="booking" class="bg-somaBg/95 backdrop-blur-md border editorial-border rounded-none p-5 xs:p-6 sm:p-10 md:p-16 text-center space-y-6 sm:space-y-10 shadow-sm relative z-20">
+                    <p class="text-[9px] sm:text-[10px] uppercase text-somaSage font-semibold tracking-wider">
+                        Время и место
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 py-5 sm:py-8 border-t border-b editorial-border text-center">
+                        <div class="space-y-1 sm:space-y-2">
+                            <span class="text-[8px] sm:text-[9px] text-somaSage uppercase font-semibold tracking-wider">Даты</span>
+                            <p class="font-serif text-lg xs:text-xl sm:text-2xl text-somaDark">7–9 августа</p>
+                        </div>
+                        <div class="space-y-1 sm:space-y-2 border-t sm:border-t-0 sm:border-l sm:border-r editorial-border pt-4 sm:pt-0">
+                            <span class="text-[8px] sm:text-[9px] text-somaSage uppercase font-semibold tracking-wider">Время</span>
+                            <p class="font-serif text-lg xs:text-xl sm:text-2xl text-somaDark">19:00–23:00</p>
+                        </div>
+                        <div class="space-y-1 sm:space-y-2 border-t sm:border-t-0 pt-4 sm:pt-0">
+                            <span class="text-[8px] sm:text-[9px] text-somaSage uppercase font-semibold tracking-wider">Место</span>
+                            <p class="font-serif text-lg xs:text-xl sm:text-2xl text-somaDark">Москва, м. Чистые пруды</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 sm:space-y-3 pt-2 sm:pt-4">
+                        <span class="text-[8px] sm:text-[9px] text-somaDark/50 uppercase font-bold tracking-wider">Стоимость участия</span>
+                        <p class="font-serif text-xl xs:text-2xl sm:text-4xl md:text-5xl text-somaSage font-light">Стоимость — 16 000 ₽</p>
+                    </div>
+
+                    <!-- Добавленная кнопка сразу после стоимости участия -->
+                    <div class="pt-4 sm:pt-6">
+                        <a href="https://forms.yandex.ru/u/6a54d5639029020b34646ba4" target="_blank" class="inline-block w-full xs:w-auto bg-somaSage hover:bg-somaSage/90 text-[#F4F0EA] font-sans text-xs sm:text-sm uppercase tracking-wider font-semibold px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-center">
+                            Записаться на интенсив
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Глубокий премиальный блок отзывов участников (с анимацией scroll-reveal) -->
+        <section class="py-12 sm:py-20 md:py-24 bg-somaBg relative z-20 scroll-reveal">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <!-- Заголовок раздела отзывов -->
+                <div class="text-center space-y-2 sm:space-y-3 mb-10 sm:mb-16">
+                    <h2 class="font-serif text-2xl sm:text-3xl md:text-5xl font-light text-somaDark uppercase tracking-wide">
+                        ОТЗЫВЫ УЧАСТНИКОВ
+                    </h2>
+                    <p class="text-[9px] sm:text-[10px] uppercase text-somaEmerald font-semibold tracking-wider px-2">
+                        Опыт и переживания тех, кто соприкоснулся с практикой
+                    </p>
+                    <div class="w-12 h-[1px] bg-somaEmerald/30 mx-auto mt-4"></div>
+                </div>
+
+                <!-- Журнальная сетка с объемными закругленными карточками двух чередующихся оттенков -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start text-left">
+                    
+                    <!-- Отзыв 1 (Изумрудный) -->
+                    <div class="bg-somaEmerald text-[#F4F0EA] p-6 sm:p-10 rounded-[32px] border border-somaEmeraldLight/30 shadow-2xl shadow-somaDark/25 hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 space-y-6 relative overflow-hidden mt-0">
+                        <div class="absolute right-6 top-4 font-serif text-4xl sm:text-5xl text-[#F4F0EA]/5 font-bold select-none">01</div>
+                        <h3 class="font-serif text-lg sm:text-xl md:text-2xl font-light leading-snug border-b border-[#F4F0EA]/10 pb-4 text-white">
+                            «Жить по-старому уже невозможно»
+                        </h3>
+                        <p class="text-xs sm:text-sm font-light leading-relaxed whitespace-pre-line pt-2">
+                            Я очень сильно тебе благодарна за те инструменты, которые ты даёшь, и за то, <strong class="font-bold text-white">как нежно и бережно</strong> ты всё это предлагаешь.
+                            
+                            Мне грустно от осознания, сколько внутренней работы предстоит — это непросто, но <strong class="font-bold text-white">жить по-старому уже невозможно</strong>.
+                            
+                            Как орёл когтями вцепляюсь в те <strong class="font-bold text-white">опоры, которые ты давала</strong> за всё время нашего взаимодействия: что «втопить в газ» — это прямая дорога к неврозу, и что иногда нужно просто бережно принять то, что сейчас происходит. Внутренний шторм в самом разгаре, но я просто глубоко дышу и перестраиваюсь.
+                        </p>
+                        <div class="border-t border-[#F4F0EA]/10 pt-4">
+                            <span class="text-[10px] uppercase tracking-wider font-semibold text-[#F4F0EA]/80">Полина</span>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 2 (Молочный бежевый) -->
+                    <div class="bg-[#F0ECE6] text-somaDark p-6 sm:p-10 rounded-[32px] border border-somaDark/10 shadow-2xl shadow-somaDark/10 hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 space-y-6 relative overflow-hidden mt-0 md:mt-8">
+                        <div class="absolute right-6 top-4 font-serif text-4xl sm:text-5xl text-somaEmerald/5 font-bold select-none">02</div>
+                        <h3 class="font-serif text-lg sm:text-xl md:text-2xl font-light leading-snug border-b border-somaDark/10 pb-4 text-somaDark">
+                            «Это совершенно новый уровень, ранее мне недоступный»
+                        </h3>
+                        <p class="text-xs sm:text-sm font-light leading-relaxed whitespace-pre-line pt-2">
+                            Алина, я не знаю даже, кого благодарить за то, что ты однажды появилась в моей жизни!
+                            
+                            Потому что тот объём и глубина, которые я ощутила в работе с тобой, — это вообще <strong class="font-bold text-somaDark">совершенно новый уровень, ранее мне недоступный</strong>. На интенсиве меня порой просто сносило от количества осознаний про себя и свой род!
+                            
+                            И мне так запала фраза о том, что <strong class="font-bold text-somaDark">мы все — уникальные узоры</strong>. Я её реально забираю с собой. «Я — узор!» — как это круто звучит и действительно меняет отношение к себе.
+                            
+                            Для меня это было не только про body, а про глубокие, <strong class="font-bold text-somaDark">многослойные внутренние процессы</strong>. И ты умеешь проводить в них потрясающе бережно. Спасибо!
+                        </p>
+                        <div class="border-t border-somaDark/10 pt-4">
+                            <span class="text-[10px] uppercase tracking-wider font-semibold text-somaEmerald">Анастасия</span>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 3 (Изумрудный) -->
+                    <div class="bg-somaEmerald text-[#F4F0EA] p-6 sm:p-10 rounded-[32px] border border-somaEmeraldLight/30 shadow-2xl shadow-somaDark/25 hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 space-y-6 relative overflow-hidden mt-0">
+                        <div class="absolute right-6 top-4 font-serif text-4xl sm:text-5xl text-[#F4F0EA]/5 font-bold select-none">03</div>
+                        <h3 class="font-serif text-lg sm:text-xl md:text-2xl font-light leading-snug border-b border-[#F4F0EA]/10 pb-4 text-white">
+                            «Именно то, что было мне жизненно необходимо»
+                        </h3>
+                        <p class="text-xs sm:text-sm font-light leading-relaxed whitespace-pre-line pt-2">
+                            Спасибо огромное за такой чудесный интенсив! Эти три дня были для меня особенными, невероятно теплыми и значимыми. 
+                            
+                            Я несказанно рада, что, можно сказать, случайно здесь очутилась — узнала об интенсиве какой-то волшебной волей судьбы. Это <strong class="font-bold text-white">именно то, что было мне жизненно необходимо</strong> прямо сейчас. Теперь я хочу находиться в этом состоянии регулярно.
+                        </p>
+                        <div class="border-t border-[#F4F0EA]/10 pt-4">
+                            <span class="text-[10px] uppercase tracking-wider font-semibold text-[#F4F0EA]/80">Мария</span>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 4 (Молочный бежевый) -->
+                    <div class="bg-[#F0ECE6] text-somaDark p-6 sm:p-10 rounded-[32px] border border-somaDark/10 shadow-2xl shadow-somaDark/10 hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 space-y-6 relative overflow-hidden mt-0 md:mt-6">
+                        <div class="absolute right-6 top-4 font-serif text-4xl sm:text-5xl text-somaEmerald/5 font-bold select-none">04</div>
+                        <h3 class="font-serif text-lg sm:text-xl md:text-2xl font-light leading-snug border-b border-somaDark/10 pb-4 text-somaDark">
+                            «Пазл наконец-то сложился в чёткую систему»
+                        </h3>
+                        <p class="text-xs sm:text-sm font-light leading-relaxed whitespace-pre-line pt-2">
+                            Мне очень понравилось, что программа была выстроена невероятно логично. Смена теории, групповой работы, соло-практик и дыхания — это то, что действительно <strong class="font-bold text-somaDark">помогло мне выстроить в голове четкую, работающую систему</strong>. Пазл наконец-то сложился.
+                        </p>
+                        <div class="border-t border-somaDark/10 pt-4">
+                            <span class="text-[10px] uppercase tracking-wider font-semibold text-somaEmerald">Елена</span>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 5 (Изумрудный) -->
+                    <div class="bg-somaEmerald text-[#F4F0EA] p-6 sm:p-10 rounded-[32px] border border-somaEmeraldLight/30 shadow-2xl shadow-somaDark/25 hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 space-y-6 relative overflow-hidden mt-0">
+                        <div class="absolute right-6 top-4 font-serif text-4xl sm:text-5xl text-[#F4F0EA]/5 font-bold select-none">05</div>
+                        <h3 class="font-serif text-lg sm:text-xl md:text-2xl font-light leading-snug border-b border-[#F4F0EA]/10 pb-4 text-white">
+                            «Обрела позицию бережного наблюдателя за своим телом»
+                        </h3>
+                        <p class="text-xs sm:text-sm font-light leading-relaxed whitespace-pre-line pt-2">
+                            Мне было невероятно <strong class="font-bold text-white">тепло, безопасно и спокойно в созданном пространстве</strong> — и со всеми участниками, и лично с тобой.
+                            
+                            Понравились глубокие практики и обилие живых примеров, которые подсветили мои истинные внутренние ценности. Местами я уходила в интенсивные переживания, но теперь я забирала в жизнь бесценный инструмент — <strong class="font-bold text-white">позицию бережного наблюдателя</strong> за своим телом. Спасибо за эти три дня!
+                        </p>
+                        <div class="border-t border-[#F4F0EA]/10 pt-4">
+                            <span class="text-[10px] uppercase tracking-wider font-semibold text-[#F4F0EA]/80">Дарья</span>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 6 (Молочный бежевый) -->
+                    <div class="bg-[#F0ECE6] text-somaDark p-6 sm:p-10 rounded-[32px] border border-somaDark/10 shadow-2xl shadow-somaDark/10 hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 space-y-6 relative overflow-hidden mt-0 md:mt-6">
+                        <div class="absolute right-6 top-4 font-serif text-4xl sm:text-5xl text-somaEmerald/5 font-bold select-none">06</div>
+                        <h3 class="font-serif text-lg sm:text-xl md:text-2xl font-light leading-snug border-b border-somaDark/10 pb-4 text-somaDark">
+                            «Стала замечать то, что годами оставалось вне прожектора внимания»
+                        </h3>
+                        <p class="text-xs sm:text-sm font-light leading-relaxed whitespace-pre-line pt-2">
+                            Я бесконечно благодарна тебе и группе за эти три дня. Как всегда случается, интенсив прошёл не так, как я ожидала. Почему-то думала, что буду прорабатывать что-то другое, что всплывёт недавнее волнующее. И ожидала мощного взрыва внутри.
+                            
+                            Но всё вышло не так.
+                            
+                            Каждый день бережно добавлял новые слова, образы и структуры. Я получила реальную возможность <strong class="font-bold text-somaDark">замечать то, что годами оставалось вне прожектора моего внимания</strong>, но всё это время происходило в моём теле.
+                        </p>
+                        <div class="border-t border-somaDark/10 pt-4">
+                            <span class="text-[10px] uppercase tracking-wider font-semibold text-somaEmerald">Ольга</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел: Ответы на частые вопросы (FAQ) -->
+        <section class="py-16 sm:py-24 border-t editorial-border bg-[#F0ECE6] relative z-20">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                <div class="text-center space-y-3 sm:space-y-4 mb-10 sm:mb-16">
+                    <h2 class="font-serif text-2xl sm:text-3xl md:text-5xl font-light text-somaDark uppercase tracking-wide">
+                        Ответы на частые вопросы
+                    </h2>
+                    <p class="text-[9px] sm:text-[10px] uppercase text-somaSage font-semibold tracking-wider">
+                        Всё, что важно знать перед началом нашего пути
+                    </p>
+                    <div class="w-12 h-[1px] bg-somaSage/30 mx-auto mt-4"></div>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Вопрос 1 -->
+                    <div class="border-b editorial-border pb-4">
+                        <button class="w-full flex justify-between items-center text-left py-4 focus:outline-none group" onclick="toggleFaq(this)">
+                            <span class="font-serif text-base sm:text-xl text-somaDark group-hover:text-somaSage transition-colors duration-300 pr-4">
+                                Нужна ли специальная физическая подготовка?
+                            </span>
+                            <span class="faq-icon text-somaSage transform transition-transform duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="text-xs sm:text-sm text-somaDark/80 font-light leading-relaxed pb-4">
+                                Абсолютно нет. Интенсив построен на мягких соматических практиках, микродвижениях, техниках саморегуляции и дыхании. Мы не занимаемся спортом или сложной йогой — все упражнения бережные, выполняются в вашем комфортном темпе и подходят людям с любым уровнем подготовки и состоянием здоровья.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 2 -->
+                    <div class="border-b editorial-border pb-4">
+                        <button class="w-full flex justify-between items-center text-left py-4 focus:outline-none group" onclick="toggleFaq(this)">
+                            <span class="font-serif text-base sm:text-xl text-somaDark group-hover:text-somaSage transition-colors duration-300 pr-4">
+                                Что необходимо взять с собой?
+                            </span>
+                            <span class="faq-icon text-somaSage transform transition-transform duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="text-xs sm:text-sm text-somaDark/80 font-light leading-relaxed pb-4">
+                                Всё необходимое оборудование, коврики и пледы мы предоставляем на месте. От вас понадобится только максимально свободная, удобная одежда (которая не сдавливает грудную клетку и живот, желательно спортивная или повседневная мягкая одежда) и блокнот с ручкой для личных терапевтических записей.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 3 -->
+                    <div class="border-b editorial-border pb-4">
+                        <button class="w-full flex justify-between items-center text-left py-4 focus:outline-none group" onclick="toggleFaq(this)">
+                            <span class="font-serif text-base sm:text-xl text-somaDark group-hover:text-somaSage transition-colors duration-300 pr-4">
+                                Как обеспечивается психологическая безопасность в группе?
+                            </span>
+                            <span class="faq-icon text-somaSage transform transition-transform duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="text-xs sm:text-sm text-somaDark/80 font-light leading-relaxed pb-4">
+                                Камерный формат до 12–15 человек позволяет мне тщательно отслеживать динамику группы. Мы принимаем строгое правило конфиденциальности: всё, что проживается и озвучивается на интенсиве, остаётся строго внутри этого пространства. Никто не принуждает вас делиться историями вслух — вы можете работать в своем собственном темпе.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 4 -->
+                    <div class="border-b editorial-border pb-4">
+                        <button class="w-full flex justify-between items-center text-left py-4 focus:outline-none group" onclick="toggleFaq(this)">
+                            <span class="font-serif text-base sm:text-xl text-somaDark group-hover:text-somaSage transition-colors duration-300 pr-4">
+                                Будет ли какая-то запись или теоретические материалы?
+                            </span>
+                            <span class="faq-icon text-somaSage transform transition-transform duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="text-xs sm:text-sm text-somaDark/80 font-light leading-relaxed pb-4">
+                                Да, вся теоретическая часть будет записана, и вы получите к ней доступ после завершения интенсива, чтобы в любое время освежить знания. Практическая групповая работа не записывается на видео из соображений полной безопасности и приватности участников.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Финальный блок: Цитата и Запись на интенсив -->
+        <section class="pt-12 pb-20 sm:pb-28 bg-[#F0ECE6] relative z-20 border-t border-somaSage/10">
+            <div class="max-w-2xl mx-auto px-4 text-center space-y-8 sm:space-y-10">
+                
+                <!-- Изящно оформленная цитата о признании -->
+                <div class="space-y-4 max-w-xl mx-auto">
+                    <div class="w-8 h-[1px] bg-somaSage/30 mx-auto"></div>
+                    <p class="font-serif text-lg xs:text-xl sm:text-2xl text-somaDark/90 font-light leading-relaxed italic">
+                        «Любые изменения начинаются с признания. <br class="hidden sm:inline">Не с капитуляции, а с честной встречи с тем, что есть»
+                    </p>
+                    <div class="w-8 h-[1px] bg-somaSage/30 mx-auto"></div>
+                </div>
+
+                <!-- Кнопки действия -->
+                <div class="space-y-4 flex flex-col items-center max-w-xs mx-auto">
+                    <!-- Большая главная кнопка "Записаться на интенсив" -->
+                    <a href="https://forms.yandex.ru/u/6a54d5639029020b34646ba4" target="_blank" 
+                       class="inline-block w-full bg-somaSage hover:bg-somaSage/90 text-[#F4F0EA] font-sans text-xs sm:text-sm uppercase tracking-wider font-semibold px-8 py-4 sm:py-5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-center">
+                        Записаться на интенсив
+                    </a>
+                    
+                    <!-- Кнопка "Хочу задать вопрос" -->
+                    <a href="https://t.me/gvasaliya" target="_blank" 
+                       class="inline-flex items-center justify-center gap-2.5 w-full text-somaDark hover:text-somaSage font-sans text-xs sm:text-sm uppercase tracking-wider font-semibold px-8 py-3.5 sm:py-4 rounded-full border border-somaDark/25 hover:border-somaSage/60 transition-all duration-300 text-center bg-transparent">
+                        <!-- Минималистичная иконка Telegram -->
+                        <svg class="w-4 h-4 text-somaSage shrink-0" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.24-5.54 3.65-.52.36-.97.53-1.34.52-.42-.01-1.21-.24-1.8-.43-.72-.24-1.3-.37-1.25-.78.03-.21.31-.43.85-.66 3.32-1.44 5.53-2.4 6.64-2.88 3.15-1.36 3.8-1.6 4.24-1.6.09 0 .32.02.46.14.12.1.15.24.16.34-.01.07-.01.14-.02.2z"/>
+                        </svg>
+                        <span>Хочу задать вопрос</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Декоративный бегущий световой узел по извилистому пути при прокрутке страницы -->
+    <div id="scroll-dot" class="fixed w-3 h-3 rounded-full bg-somaSageLight/65 pointer-events-none z-30 opacity-0 transition-opacity duration-300 blur-[2px]"></div>
+
+    <script>
+        // Интерактивный клик/тап с искрой (✦)
+        document.addEventListener('click', (e) => {
+            // Предотвращаем спам искр при клике по кнопкам
+            if (e.target.closest('a') || e.target.closest('button')) return;
+
+            const spark = document.createElement('div');
+            spark.className = 'click-spark font-serif';
+            spark.innerHTML = '✦';
+            spark.style.left = `${e.pageX}px`;
+            spark.style.top = `${e.pageY}px`;
+            
+            // Задаем случайное легкое смещение по цвету/размеру
+            if (Math.random() > 0.5) {
+                spark.style.color = '#CDCEBF'; // Оливковый блик
+            }
+            
+            document.body.appendChild(spark);
+            
+            // Удаляем после окончания анимации
+            setTimeout(() => {
+                spark.remove();
+            }, 800);
+        });
+
+        // Интерактивный Параллакс (Магнитная карта главного фото)
+        const authorCard = document.getElementById('author-card-container');
+        const cardBg = document.getElementById('author-card-bg');
+        const cardMain = document.getElementById('author-card-main');
+
+        if (authorCard && cardBg && cardMain && window.innerWidth > 768) {
+            authorCard.addEventListener('mousemove', (e) => {
+                const rect = authorCard.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                // Смещаем подложку и главное фото в противоположные стороны для эффекта объема
+                cardBg.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+                cardMain.style.transform = `translate(${x * -0.05}px, ${y * -0.05}px)`;
+            });
+
+            authorCard.addEventListener('mouseleave', () => {
+                cardBg.style.transform = 'translate(16px, 16px)'; // 4px translate-x-4
+                cardMain.style.transform = 'translate(0px, 0px)';
+            });
+        }
+
+        // Следящий светящийся узел по траектории при прокрутке
+        const scrollDot = document.getElementById('scroll-dot');
+        const scrollPath = document.getElementById('scrollPath1');
+
+        if (scrollDot && scrollPath) {
+            window.addEventListener('scroll', () => {
+                const pathLength = scrollPath.getTotalLength();
+                const scrollPercent = (window.scrollY) / (document.documentElement.scrollHeight - window.innerHeight);
+                
+                if (scrollPercent >= 0 && scrollPercent <= 1) {
+                    const point = scrollPath.getPointAtLength(scrollPercent * pathLength);
+                    
+                    // Переводим локальные координаты SVG в координаты экрана
+                    const svgRect = scrollPath.ownerSVGElement.getBoundingClientRect();
+                    const dotX = svgRect.left + point.x;
+                    const dotY = svgRect.top + point.y;
+                    
+                    scrollDot.style.left = `${dotX}px`;
+                    scrollDot.style.top = `${dotY}px`;
+                    scrollDot.style.opacity = '1';
+                } else {
+                    scrollDot.style.opacity = '0';
+                }
+            });
+        }
+
+        // Анимация плавного проявления блоков (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            threshold: 0.05,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target); // Показываем один раз
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Настройки интерактивного дыхательного камертона
+        const breathCircle = document.getElementById('breath-circle');
+        const breathText = document.getElementById('breath-text');
+        const breathDesc = document.getElementById('breath-mode-desc');
+        const breathTimerHelper = document.getElementById('breath-timer-helper');
+
+        let breatheInterval = null;
+        let activeBreatheMode = 'balance';
+
+        const breatheConfigs = {
+            balance: {
+                inhale: 4000,
+                hold: 4000,
+                exhale: 4000,
+                desc: 'Мягкая балансировка симпатической и парасимпатической систем.',
+                helper: 'Ритм: 4с вдох — 4с пауза — 4с выдох'
+            },
+            relax: {
+                inhale: 4000,
+                hold: 7000,
+                exhale: 8000,
+                desc: 'Глубокая релаксация, снижение уровня адреналина и соматического напряжения.',
+                helper: 'Ритм: 4с вдох — 7с пауза — 8с выдох'
+            },
+            tone: {
+                inhale: 4000,
+                hold: 2000,
+                exhale: 4000,
+                desc: 'Бережный тонус, активация внимания, снятие утренней сонливости.',
+                helper: 'Ритм: 4с вдох — 2с пауза — 4с выдох'
+            }
+        };
+
+        function setBreatheMode(mode, button) {
+            activeBreatheMode = mode;
+
+            // Обновляем визуальное состояние кнопок переключателя
+            document.querySelectorAll('.breathe-mode-btn').forEach(btn => {
+                btn.className = "breathe-mode-btn py-1.5 px-4 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 bg-somaBgDarker/55 text-somaDark hover:bg-somaBgDarker";
+            });
+            if (button) {
+                button.className = "breathe-mode-btn py-1.5 px-4 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 bg-somaSage text-[#F4F0EA] shadow-sm";
+            }
+
+            // Накатываем новые текстовые настройки
+            if (breathDesc) breathDesc.innerText = breatheConfigs[mode].desc;
+            if (breathTimerHelper) breathTimerHelper.innerText = breatheConfigs[mode].helper;
+
+            // Перезапускаем цикл
+            runBreatheCycle();
+        }
+
+        function runBreatheCycle() {
+            if (breatheInterval) clearInterval(breatheInterval);
+            
+            const currentConfig = breatheConfigs[activeBreatheMode];
+            const totalDuration = currentConfig.inhale + currentConfig.hold + currentConfig.exhale;
+
+            function cycle() {
+                if (!breathCircle || !breathText) return;
+
+                // Вдох
+                breathCircle.style.transitionDuration = `${currentConfig.inhale}ms`;
+                breathCircle.style.transform = 'scale(1.5)';
+                breathCircle.style.backgroundColor = 'rgba(91, 105, 131, 0.12)';
+                breathText.innerText = 'Вдох';
+
+                setTimeout(() => {
+                    // Пауза / Задержка
+                    if (activeBreatheMode !== 'tone') {
+                        breathText.innerText = 'Пауза';
+                    } else {
+                        breathText.innerText = 'Удержание';
+                    }
+                    
+                    setTimeout(() => {
+                        // Выдох
+                        breathCircle.style.transitionDuration = `${currentConfig.exhale}ms`;
+                        breathCircle.style.transform = 'scale(0.85)';
+                        breathCircle.style.backgroundColor = 'rgba(91, 105, 131, 0.02)';
+                        breathText.innerText = 'Выдох';
+                    }, currentConfig.hold);
+                }, currentConfig.inhale);
+            }
+
+            cycle();
+            breatheInterval = setInterval(cycle, totalDuration);
+        }
+
+        // Запуск дыхания на старте
+        window.addEventListener('load', () => {
+            runBreatheCycle();
+        });
+
+        // Функция переключения дней подробной программы
+        function changeDay(dayNumber) {
+            document.querySelectorAll('.day-btn').forEach(btn => {
+                btn.classList.remove('bg-somaSage', 'text-[#F4F0EA]', 'shadow-md');
+                btn.classList.add('bg-somaBgDarker/40', 'text-somaDark');
+            });
+            
+            event.currentTarget.classList.remove('bg-somaBgDarker/40', 'text-somaDark');
+            event.currentTarget.classList.add('bg-somaSage', 'text-[#F4F0EA]', 'shadow-md');
+
+            document.querySelectorAll('.day-content').forEach(content => {
+                content.classList.add('hidden', 'opacity-0');
+            });
+            
+            const targetContent = document.getElementById('day-' + dayNumber);
+            targetContent.classList.remove('hidden');
+            setTimeout(() => {
+                targetContent.classList.remove('opacity-0');
+                targetContent.classList.add('opacity-100');
+            }, 50);
+        }
+
+        // Функция переключения FAQ аккордеона
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            
+            document.querySelectorAll('.faq-content').forEach(item => {
+                if (item !== content) {
+                    item.style.maxHeight = null;
+                    const otherIcon = item.previousElementSibling.querySelector('.faq-icon');
+                    if (otherIcon) otherIcon.classList.remove('rotate-180');
+                }
+            });
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.classList.remove('rotate-180');
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.classList.add('rotate-180');
+            }
+        }
+    </script>
+</body>
+</html>
